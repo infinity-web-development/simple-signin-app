@@ -1,0 +1,135 @@
+@import "../app.component.scss";
+
+mat-card-header {
+    justify-content: center;
+    mat-card-title {
+        font-size: 22px;
+        font-weight: 600;
+    }
+}
+
+.add-product-container {
+    display: flex;
+    justify-content: center;
+    mat-card {
+        margin-top: 60px;
+        width: 85vw;
+        max-width: 600px;
+        margin: 60px;
+    }
+}
+
+
+.add-img {
+    width: 100%;
+    height: 150px;
+    background: url('/assets/img/imgicon.png') center no-repeat;
+    background-size: 150px 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .input-overlay-container {
+        position: absolute;
+        z-index: 3;
+        width: 150px;
+        height: 150px;
+    }
+    input {
+        width: 150px;
+        height: 150px;
+        position: relative;
+        opacity: 0;
+        z-index: 4;
+    }
+    .text-overlay {
+        background-color: #0000007d;
+        color: #ffffff;
+        position: relative;
+        bottom: 100px;
+        width: 150px;
+        text-align: center;
+    }
+    img {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+.input-form-container {
+    display: flex;
+    flex-direction: column;
+
+    .mat-select {
+        margin: 14px 0;
+        font-size: 16px;
+    }
+    .form-field-container {
+        display: flex;
+        margin: 10px 0;
+        mat-label {
+            width: 30%;
+        }
+        input, textarea {
+            border: 1px solid #dfdfdf;
+            border-right: 0px;
+            border-left: 0px;
+            border-top: 0px;
+            height: 44px;
+            width: 70%;
+            font-size: 16px;
+            padding: 0px 10px;
+            cursor: pointer;
+            overflow-x: scroll;
+        }
+        mat-label {
+            font-size: 16px;
+            font-weight: 200;
+        }
+    }
+    .details {
+        display: flex;
+        flex-direction: column;
+    }
+    textarea {
+        height: 100px;
+    }
+    mat-form-field {
+        color: #fff;
+    }
+    .keyword-container {
+        display: flex;
+        justify-content: space-between;
+        mat-form-field {
+            width: 100%;
+        }
+       
+    }
+    .button-container {
+        width: 80px;
+        height: 35px;
+    }  
+}
+
+mat-form-field {
+    input {
+        color: #000000;
+
+    }
+}
+.action-set {
+    display: flex;
+    justify-content: space-around;
+    button {
+        width: 170px;
+    }
+    .done {
+        background-color: $main-color;
+        color: #ffffff;
+    }
+    .cancel {
+        background: rgba(255, 255, 255, 0.00);
+        color: $main-color;
+        border: 1px solid $main-color;
+    }
+}

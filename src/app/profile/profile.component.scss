@@ -1,0 +1,165 @@
+@import "../app.component.scss";
+
+.main-container{
+    padding: 15px;
+    // display: flex;
+}
+
+#profile, #products {
+    margin: 15px;
+    position: relative; 
+    top: 45px;
+}
+#profile{
+    display:flex;
+    max-width: 980px;
+    min-height: 200px; 
+    height: 100%;
+    .address-container {
+        display: flex;
+    }
+    .profile-pic img {
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+        margin-bottom:20px;
+        background: url('/assets/img/imgicon.png') center;
+        background-size: cover;
+    }
+    .info-container {
+        margin: 0px 20px;
+    }
+    .pen {
+        display: flex;
+        text-align: right;
+        justify-content: flex-end;
+        p {
+            margin: 0 10px;
+        }
+    }
+    .review-icon {
+        display: flex;
+        align-items: center;
+        mat-icon {
+            line-height: 1.4;
+        }
+        p {
+            margin: 0 20px;
+        }
+    }
+}
+.add-product-container {
+    margin-top: 50px;
+}
+
+.profile-button .button-container {
+    margin: auto;
+    width: 300px !important;
+} 
+#products  {
+    width: 100%;
+    // display: flex;
+    justify-content: center;
+}
+
+.product-tile {
+    max-width: 200px;
+    height: 260px;
+    border: 2px solid #eeeeee;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    margin: 20px 20px 0 20px;
+    .profile-pic {
+        background: url('/assets/img/imgicon.png') center;
+        background-size: cover;
+        width: 200px;
+        height: 200px;
+    }
+}
+.add-tile{
+    margin: 20px 20px 0 20px;
+    mat-icon {
+        background-color: $main-color;
+        border-radius: 50%;
+        color: #fff;
+        width:50px;
+        height: 50px;
+        font-size: 40px;
+        text-align: center;
+        line-height: 1.2;
+
+    }
+}
+.active-products-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-grow: 2;
+}
+
+.label-container {
+    display: flex;
+    justify-content: space-between;
+    label {
+        width: 100px;
+    }
+}
+.store-hours {
+    display: flex;
+    justify-content: space-between;
+    div {
+        width: 100px;
+    }
+}
+
+.store-hours-container {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    height: 239px;
+    justify-content: space-around;
+}
+
+@media only screen and (max-width: 649px){
+    .main-container {
+        padding: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    #profile {
+        display: flex;
+        flex-direction: column;
+        max-width: 450px;
+        .info-container {
+            margin: 0px;
+        }
+    }
+    .profile-display {
+        display: none;
+        p {
+            margin-right: 20px;
+        }
+    }
+
+    
+    .profile-pic  {
+        display: flex;
+        width: 100%;
+        justify-content: center; 
+    }
+    .product-tile {
+        max-width: 300px;
+        width: 300px;
+        height: 360px;
+    }
+}
+
+app-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 12;
+}

@@ -1,0 +1,107 @@
+<app-header></app-header>
+<div class="add-product-container">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Edit Profile</mat-card-title>
+      </mat-card-header>
+      <div class="add-img">
+        <div class="input-overlay-container">
+          <input type="file" accept="image/*" (change)="onFileSelected($event.target.files)">
+          <div class="text-overlay">
+            <p>Add Photo</p>
+          </div> 
+        </div>
+        <img *ngIf="profile && profile.profileImage && !imageUrl" [src]="profile.profileImage" alt="Pink hair">
+        <img *ngIf="imageUrl" [src]="imageUrl" alt="Pink hair">
+      </div>
+
+      <mat-card-content class="input-form-container">
+        
+        <div class="form-field-container">
+          <mat-label>Store Name:</mat-label>
+          <input matInput placeholder="New Store Name" type="text" [(ngModel)]="profile.storeName">
+        </div>
+        <div class="form-field-container">
+          <mat-label>User Name:</mat-label>
+          <input matInput placeholder="User Name" type="text" [(ngModel)]="profile.userName">
+        </div>
+        <div class="form-field-container">
+          <mat-label>Address:</mat-label>
+          <input placeholder="search for location" width="150px" height="50px" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [(ngModel)]="updatedProfileUser.address || profile.address" [formControl]="searchControl">
+        </div>
+        <div class="form-field-container">
+          <mat-label>Phone Number:</mat-label>
+          <input matInput placeholder="Phone Number" type="tel" [(ngModel)]="profile.phoneNumber">
+        </div>
+        <div class="form-field-container">
+          <mat-label>Email:</mat-label>
+          <input matInput placeholder="Email" type="email" [(ngModel)]="profile.email">
+        </div>
+        <div class="form-field-container">
+          <mat-label>Facebook Url:</mat-label>
+          <input matInput placeholder="facebook page" type="text" [(ngModel)]="profile.facebook">
+        </div>
+        <div class="form-field-container">
+          <mat-label>Instagram Url:</mat-label>
+          <input matInput placeholder="instagram page" type="text" [(ngModel)]="profile.instagram">
+        </div>
+        <div class="form-field-container">
+          <mat-label>Youtube Url:</mat-label>
+          <input matInput placeholder="instagram page" type="text" [(ngModel)]="profile.youtube">
+        </div>
+        <div class="form-field-container">
+          <mat-label>Website Url:</mat-label>
+          <input matInput placeholder="website url" type="text" [(ngModel)]="profile.website">
+        </div>
+        <div class="form-field-container" *ngFor="let day of storeHours; index as i;">
+          <mat-label>{{day.day}}</mat-label>
+          <mat-select *ngIf="timeList"  placeholder="--Open From--" [(ngModel)]="day.open">
+            <mat-option *ngFor="let time of timeList" [value]="time" >
+              {{time}}
+            </mat-option>
+          </mat-select>
+          <mat-select *ngIf="timeList" placeholder="--Closed At--" [(ngModel)]="day.closed">
+            <mat-option *ngFor="let time of timeList" [value]="time" >
+              {{time}}
+            </mat-option>
+          </mat-select>
+        </div>
+        <!-- <agm-map [scrollwheel]="false" [zoom]="zoom">
+          <agm-marker  
+          [markerDraggable]="null"
+          (dragEnd)="null"></agm-marker>
+        </agm-map> -->
+
+
+        <!-- <div class="form-field-container">
+          <mat-label>Choose Brand</mat-label>
+          <mat-select placeholder="--Select--" [(ngModel)]="newProduct.brand">
+            <mat-option *ngFor="let brand of brandList" [value]="brand" >
+              {{brand}}
+            </mat-option>
+          </mat-select>
+        </div>
+        <div class="keyword-container form-field-container">
+          <div>
+            <mat-label>Tags</mat-label>
+            <input matInput [(ngModel)]="newProduct.keywords" placeholder="Keywords(ie: 4c, lace, easy diy)">  
+          </div>          
+          <div>
+              <mat-label>Price ($):</mat-label><input [(ngModel)]="newProduct.price" type="text">
+          </div>
+        </div>
+        <div class="form-field-container details">
+          <mat-label>Product Details</mat-label>
+          <textarea matInput type="text" [(ngModel)]="newProduct.description" placeholder="Tell us everything you know about the product"></textarea>
+        </div>
+       -->
+      </mat-card-content>
+
+      <mat-card-actions >
+        <div class="action-set">
+          <button class="cancel" (click)="goToProfile()" mat-button>Cancel</button>
+          <button *ngIf="canSend" class="done" (click)="done()" mat-button>Done</button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+</div>

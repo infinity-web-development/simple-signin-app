@@ -1,0 +1,149 @@
+@import "../app.component.scss";
+
+#home {
+    background: url("../../assets/img/homebg.jpg") no-repeat top;
+    background-size: 2000px;
+    justify-content: center;
+    height: 100vh;
+
+    .text-container {
+        margin: 15px;
+        text-align: center;
+    }
+    .heading, .sub-heading {
+        margin: 0;
+    }
+    .heading {
+        color: #fff;
+        font-size: 18px;
+        margin: 0;
+    }
+    .sub-heading {
+        color: #D0D0D0;
+        
+    }
+    mat-form-field {
+        color: #fff;
+    }
+}
+.mat-form-field-label {
+    color: red !important;
+
+}
+mat-grid-tile {
+    background: lightblue;
+}
+
+aside {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background:$main-color;
+    color: #fff;
+    padding: 30px 0px;
+
+    button.mat-raised-button {
+        color: #000;
+    }
+
+    h3 {
+        margin: 0;
+    }
+}
+.header {
+    position: fixed;
+    top: 0;
+  }
+
+.main-content {
+    .button-container {
+        width: 117px;
+    }
+
+}
+.main-content.full {
+    display: flex;
+    justify-content: center;
+    input {
+        background: #fff;
+        height: 50px;
+        width: 150px;
+        padding-left: 10px;
+        border: 1px solid #eaeaea;
+    }
+
+}
+#browse {
+    .content-container.mobile {
+        display: none;
+    }
+    mat-grid-tile {
+        color: #fff;
+    }
+    mat-grid-tile.block-two {
+        background: url("../../assets/img/beautysupply.jpg") no-repeat top;
+        background-size: 152vw;
+    }
+    mat-grid-tile.block-one {
+        background: url("../../assets/img/mayvenn.jpg") no-repeat top;
+    }
+    mat-grid-tile.block-three {
+        background: url("../../assets/img/dreads.jpg") no-repeat top;
+    }
+}
+
+.main-content.mobile {
+    display: none;
+}
+
+@media(max-width: 600px) {
+    #home {
+        height: 100vh;
+    }
+    .main-content.full {
+        display: none ;
+    }
+    
+    .main-content.mobile {
+        display: flex;
+        justify-content: center;
+        input {
+            background: #fff;
+            height: 50px;
+            min-width: 150px;
+            width: 50vw;
+            padding-left: 10px;
+            border: 1px solid #eaeaea;
+        }
+    }
+
+    #browse {
+        .content-container.full {
+            display: none;
+        }
+        .content-container.mobile {
+            display: inherit;
+        }
+        mat-grid-tile.block-one {
+            // background: url("../../assets/img/beautysupply.jpeg") no-repeat top;
+        }
+        mat-grid-tile.block-two {
+            background: url("../../assets/img/mayvenn.jpg") no-repeat top 66vw;
+        }
+        mat-grid-tile.block-three {
+            // background: url("../../assets/img/beautysupply.jpeg") no-repeat top;
+        }
+    }
+}
+
+app-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+// .header {
+//     position: fixed;
+//     top: 0;
+//     width: 100%;
+// }

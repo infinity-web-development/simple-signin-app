@@ -1,0 +1,41 @@
+<div class="page-wrapper">
+  <app-header> </app-header>
+    <!-- <div class="main-container overlay"></div> -->
+  <div class="main-container">
+    <div id="product-list-container">
+        <div class="active-products-container">  
+          <div class="product-tile" *ngFor="let user of users">
+              <div class="info-container" (click)="viewProducts(user)">
+                  <div class="product-img">
+                    <img mat-card-image *ngIf="user.profileImage" [src]="user.profileImage" alt="Photo of a Shiba Inu">
+                    <img mat-card-image *ngIf="!user.profileImage" src="../../assets/img/imgicon.png" alt="NO user Image">                
+                  </div>
+                  <div class="text-container">
+                      <p>{{user.storeName}}</p>
+                      <p><mat-icon>location_on</mat-icon>{{user.address}}</p>
+                      <div>
+                        <button mat-button (click)="viewProducts(user)">View Products</button>
+                      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div id="map-container">
+      <div class="container">
+        <div class="form-group">
+          <input placeholder="search for location" width="150px" height="50px" autocorrect="off" autocapitalize="off" spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+        </div>
+        <agm-map *ngIf="userList" [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+          <div *ngFor="let m of users; let i = index">
+            <agm-marker [latitude]="m.lat" [longitude]="m.long"  
+            [markerDraggable]="null"
+            (dragEnd)="null"></agm-marker>
+          </div>
+        </agm-map>
+      </div>
+    </div>
+  </div>
+  <app-footer class="footer"></app-footer>
+
+</div>

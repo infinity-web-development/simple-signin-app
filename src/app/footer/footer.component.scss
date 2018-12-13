@@ -1,0 +1,25 @@
+@import "../app.component.scss";
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: #393939;
+    height: 50px;
+    width: 100%;
+}
+
+p {
+    margin: 0;
+    line-height: 2.9;
+    color: #fff;
+}
+
+.nav-icon-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 500px;
+    width: 100%;
+    color: #fff;
+}

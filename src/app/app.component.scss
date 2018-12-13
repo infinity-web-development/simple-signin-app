@@ -1,0 +1,15 @@
+$main-color: #b5e2e5;
+
+router-outlet {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 1380px;
+}
+// .mat-dialog-container#mat-dialog-0 {
+//     width: 100vw;
+//     height: 100vh;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+// }

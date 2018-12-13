@@ -1,0 +1,120 @@
+@import "../app.component.scss";
+
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  .button-container {
+    width: 80px;
+    height: 35px;
+  }  
+}
+agm-map {
+    height: 600px;
+  }
+
+.main-container {
+  display: flex;
+  max-height: 95vh;
+  overflow-y: hidden;
+  position: relative;
+  margin-top: 54px;
+}
+.main-container.overlay {
+  z-index: 23;
+  background: rgba(0, 0, 0, 0.06);
+  position: absolute;
+  height:95vh;
+}
+
+#product-list-container {
+  min-width: 300px;
+  width: 100%;
+  height: 600px;
+  padding: 20px;
+  .product-tile {
+    display: flex;
+    margin-bottom: 15px;
+    background-color: #fff;
+
+    .product-img img {
+      width: 100%;
+      height: 100%;
+    }
+    .product-img {
+      width: 150px;
+      height: 150px;
+    }
+
+  }
+  .active-products-container {
+    height: 90vh;
+    overflow-y: scroll;
+  }
+  .info-container {
+    display: flex;
+    .text-container {
+    justify-content: flex-start;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+      p {
+        margin:5px;
+      }
+    }
+  }
+  .mat-card-img {
+    margin: 0;
+
+  }
+}
+
+#map-container {
+  width: 100%
+}
+
+@media only screen and (max-width: 649px){
+  .main-container {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 0;
+  }
+  #product-list-container {
+    width: 100%;
+    height: 136px;
+    position: fixed;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    z-index: 2;
+    bottom: 0px;
+    .active-products-container {
+      height: 90vh;
+      display: flex;
+      justify-content: space-between;
+    }
+    .mat-card-img {
+      margin: 0;
+    }
+    .product-tile {
+      margin: 0 10px 10px 10px;
+      height: 100px;    
+      .product-img {
+        width: 100px;
+        height: 100px;
+      }
+
+      .product-img img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+}
+
+app-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
