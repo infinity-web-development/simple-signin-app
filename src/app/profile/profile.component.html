@@ -2,7 +2,7 @@
   <app-header></app-header>
   <div class="main-container">
     <div>
-      <div id="profile" *ngIf="productListView" [ngClass]="{'profile-display': !productListView}">
+      <div id="profile" *ngIf="postListView" [ngClass]="{'profile-display': !postListView}">
         <div>
           <div class="profile-pic">
             <img *ngIf="profile" src="{{profile.profileImage}}" alt="">
@@ -38,12 +38,12 @@
         </div>
       </div>
       <div class="add-post-container">
-        <app-add-post (doneAddingPost)="doneAdding($event)" *ngIf="!productListView"></app-add-post>
+        <app-add-post (doneAddingPost)="doneAdding($event)" *ngIf="!postListView"></app-add-post>
       </div>
     </div>
 
     <div  id="products">
-        <mat-tab-group [selectedIndex]="selectedTab" *ngIf="productListView">
+        <mat-tab-group [selectedIndex]="selectedTab" *ngIf="postListView">
           <mat-tab label="Active Posts">
             <mat-card *ngIf="canEdit && !publicView" class="add-tile" (click)="addPost()">
               <mat-icon>add</mat-icon>
