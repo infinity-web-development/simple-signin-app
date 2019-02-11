@@ -60,8 +60,8 @@ export class LandingPageComponent implements OnInit {
     
   }
 
-  goToMapView () {
-    this.router.navigate(['/home']);
+  startDailyFocus () {
+    this.router.navigate(['/daily-home']);
   }
 
   searchDatabase() {

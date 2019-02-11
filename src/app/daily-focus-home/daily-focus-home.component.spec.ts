@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProductsComponent } from './products.component';
+import { DailyFocusHomeComponent } from './daily-focus-home.component';
 
-describe('ProductsComponent', () => {
-  let component: ProductsComponent;
-  let fixture: ComponentFixture<ProductsComponent>;
+describe('DailyFocusHomeComponent', () => {
+  let component: DailyFocusHomeComponent;
+  let fixture: ComponentFixture<DailyFocusHomeComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProductsComponent ]
+      declarations: [ DailyFocusHomeComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProductsComponent);
+    fixture = TestBed.createComponent(DailyFocusHomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

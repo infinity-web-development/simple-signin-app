@@ -1,0 +1,35 @@
+<div class="add-product-container">
+    <mat-card >
+      <mat-card-header>
+        <mat-card-title>Post</mat-card-title>
+      </mat-card-header>
+      <div class="add-img">
+        <input type="file" accept="image/*" (change)="onFileSelected($event.target.files)">
+        <img mat-card-image width="250px" height="250px"  *ngIf="imageUrl" [src]="imageUrl" alt="Pink hair">
+        <div class="text-overlay">
+          <p>Add Photo</p>
+        </div> 
+      </div>
+
+      <mat-card-content class="input-form-container">
+        <div class="keyword-container form-field-container">
+          <div>
+            <mat-label>Tags</mat-label>
+            <input matInput [(ngModel)]="newPost.keywords" placeholder="Keywords(ie: 4c, lace, easy diy)">  
+          </div>          
+        </div>
+        <div class="form-field-container details">
+          <mat-label>Caption</mat-label>
+          <textarea matInput type="text" [(ngModel)]="newPost.caption" placeholder="Tell us more about this photo"></textarea>
+        </div>
+      
+      </mat-card-content>
+
+      <mat-card-actions >
+        <div class="action-set">
+          <button class="cancel" (click)="cancel()" mat-button>Cancel</button>
+          <button *ngIf="canSend" class="done" (click)="done()" mat-button>Done</button>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+</div>

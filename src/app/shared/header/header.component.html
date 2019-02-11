@@ -18,7 +18,7 @@
       <mat-divider></mat-divider>
       <div class="list-item" (click)="goToProfile()">Profile</div>
       <mat-divider></mat-divider>
-      <!-- <div class="list-item">Your Products</div>  
+      <!-- <div class="list-item">Your Posts</div>  
       <mat-divider></mat-divider>
       <div class="list-item">Your Orders</div>     
       <mat-divider></mat-divider>
@@ -58,8 +58,8 @@
         <div class="nav-container main">
             <div class="right-nav logo">
               <a routerLink="/" routerLinkActive="active">
-                <span>My Favorite</span>
-                <span>App</span>
+                <span>Daily</span>
+                <span>Destiny</span>
               </a>
             </div>
             <div class="left-nav">
@@ -72,8 +72,8 @@
           <mat-icon (click)="drawer.toggle()">menu</mat-icon>
           <div class="logo">
               <a (click)="goToHome()"routerLinkActive="active">
-                <span>My Favorite</span>
-                <span>App</span>
+                <span>Daily</span>
+                <span>Destiny</span>
               </a>
             </div>
         </div>
@@ -83,8 +83,8 @@
         <div class="nav-container main authorized">
             <div class="right-nav logo">
               <a (click)="goToHome()" routerLinkActive="active">
-                <span>My Favorite</span>
-                <span>App</span>
+                <span>Daily</span>
+                <span>Destiny</span>
               </a>
             </div>
             <div [matMenuTriggerFor]="settingsMenu" class="left-nav">
@@ -98,7 +98,7 @@
               <button></button>
               <button mat-menu-item (click)="goToMap()">Map</button>              
               <button mat-menu-item (click)="goToProfile(drawer)">Profile</button>
-                <!-- <button mat-menu-item>Your Products</button>
+                <!-- <button mat-menu-item>Your Posts</button>
                 <button mat-menu-item>Your Orders</button>
                 <button mat-menu-item>Favorites</button>
                 <button mat-menu-item>Set Up Your Business</button>
@@ -112,8 +112,8 @@
           <mat-icon (click)="drawer.toggle()">menu</mat-icon>            
           <div class="logo">
               <a routerLink="/" routerLinkActive="active">
-                <span>My Favorite</span>
-                <span>App</span>
+                <span>Daily</span>
+                <span>Destiny</span>
               </a>
             </div>
         </div>

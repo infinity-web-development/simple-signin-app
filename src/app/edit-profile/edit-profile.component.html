@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class="add-product-container">
+<div class="add-post-container">
     <mat-card>
       <mat-card-header>
         <mat-card-title>Edit Profile</mat-card-title>
@@ -75,7 +75,7 @@
 
         <!-- <div class="form-field-container">
           <mat-label>Choose Brand</mat-label>
-          <mat-select placeholder="--Select--" [(ngModel)]="newProduct.brand">
+          <mat-select placeholder="--Select--" [(ngModel)]="newPost.brand">
             <mat-option *ngFor="let brand of brandList" [value]="brand" >
               {{brand}}
             </mat-option>
@@ -84,15 +84,15 @@
         <div class="keyword-container form-field-container">
           <div>
             <mat-label>Tags</mat-label>
-            <input matInput [(ngModel)]="newProduct.keywords" placeholder="Keywords(ie: 4c, lace, easy diy)">  
+            <input matInput [(ngModel)]="newPost.keywords" placeholder="Keywords(ie: 4c, lace, easy diy)">  
           </div>          
           <div>
-              <mat-label>Price ($):</mat-label><input [(ngModel)]="newProduct.price" type="text">
+              <mat-label>Price ($):</mat-label><input [(ngModel)]="newPost.price" type="text">
           </div>
         </div>
         <div class="form-field-container details">
-          <mat-label>Product Details</mat-label>
-          <textarea matInput type="text" [(ngModel)]="newProduct.description" placeholder="Tell us everything you know about the product"></textarea>
+          <mat-label>Post Details</mat-label>
+          <textarea matInput type="text" [(ngModel)]="newPost.description" placeholder="Tell us everything you know about the product"></textarea>
         </div>
        -->
       </mat-card-content>

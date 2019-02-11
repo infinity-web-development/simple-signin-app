@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map'
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 
-class Product {
+class Post {
   name?: string;
   category?:string; 
   subcategory?:string;
@@ -21,12 +21,12 @@ class Product {
   styleUrls: ['./create-demand.component.scss']
 })
 export class CreateDemandComponent implements OnInit {
-  productList: AngularFirestoreCollection<Product>;
+  productList: AngularFirestoreCollection<Post>;
   products: Observable<any[]>
   newContent: {name:string ,category: string, subcategory:string};
 
   constructor(private afs: AngularFirestore) {
-    this.productList = this.afs.collection<Product>('/products');
+    this.productList = this.afs.collection<Post>('/products');
     this.products = this.productList.valueChanges();
 
     this.newContent = {name: '', category:'', subcategory: ''}
@@ -35,7 +35,7 @@ export class CreateDemandComponent implements OnInit {
    
   ngOnInit() {
 
-    this.productList = this.afs.collection<Product>('/products');
+    this.productList = this.afs.collection<Post>('/products');
     this.products = this.productList.valueChanges();
   }
 

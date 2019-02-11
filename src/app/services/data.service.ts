@@ -13,7 +13,7 @@ export class DataService {
 
      }
 
-    getAllProducts() {
+    getAllPosts() {
       return this._http.get("/api/get-all-products")
         .map(result => {
 
@@ -43,14 +43,14 @@ export class DataService {
       });
     }
     
-    addProduct(productObj) {
-      return this._http.post("/api/add-product", productObj)
+    addPost(productObj) {
+      return this._http.post("/api/add-post", productObj)
       .map(result => {
         return result.json();
       })
     }
 
-    getUserProducts(id) {
+    getUserPosts(id) {
       return this._http.get('/api/user-product/'+id)
       .map(result => {
         return result.json();

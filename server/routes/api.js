@@ -19,16 +19,16 @@ db.once('open', function callback() {
     console.log('we are connected to our database ')
 
     let productSchema = mongoose.Schema({
-        name: String,
-        price:String,
-        brand: String,
-        description:String,
+        caption: String,
+        likes:String,
         keywords: String,
         image: String, 
         long: Number,
         lat: Number,
         date: String,
-        uid: String
+        uid: String,
+        userName: String,
+        shareLink: String
     });
 
     let userSchema = mongoose.Schema({
@@ -59,7 +59,7 @@ db.once('open', function callback() {
     })
     
     // Store song documents in a collection called "songs"
-    let Product = mongoose.model('products', productSchema);
+    let Post = mongoose.model('products', productSchema);
     let User = mongoose.model('users', userSchema);
     // Error handling
     const sendError = (err, res) => {
@@ -83,7 +83,7 @@ db.once('open', function callback() {
     });
 
     router.get('/get-all-products', (req, res) => {
-        Product.find({}, (err, products) => {
+        Post.find({}, (err, products) => {
             if(err) res.json(err)
             res.setHeader('Content-Type', 'application/json')
             res.status(200).send(products);
@@ -99,10 +99,10 @@ db.once('open', function callback() {
     });
 // Addproduct
 
-    router.post('/add-product', (req, res) => {
-        Product.find({ uid: req.body.uid },(err, product)=> {
-            let newProduct = new Product (req.body)
-            newProduct.save((err, prod) =>{
+    router.post('/add-post', (req, res) => {
+        Post.find({ uid: req.body.uid },(err, product)=> {
+            let newPost = new Post (req.body)
+            newPost.save((err, prod) =>{
                 if (err) {
                     res.send('error products');
                 } else {
@@ -114,7 +114,7 @@ db.once('open', function callback() {
     });
 
     router.get('/user-product/:id', (req,res) => {
-        Product.find({uid: req.params.id}, (err, products) => {
+        Post.find({uid: req.params.id}, (err, products) => {
             if(err) res.json(err);
             res.setHeader('Content-Type', 'application/json')
             res.status(200).send(products);

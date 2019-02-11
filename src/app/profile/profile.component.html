@@ -37,15 +37,15 @@
           </div>
         </div>
       </div>
-      <div class="add-product-container">
-        <app-add-product (doneAddingProduct)="doneAdding($event)" *ngIf="!productListView"></app-add-product>
+      <div class="add-post-container">
+        <app-add-post (doneAddingPost)="doneAdding($event)" *ngIf="!productListView"></app-add-post>
       </div>
     </div>
 
     <div  id="products">
         <mat-tab-group [selectedIndex]="selectedTab" *ngIf="productListView">
-          <mat-tab label="Active Products">
-            <mat-card *ngIf="canEdit && !publicView" class="add-tile" (click)="addProduct()">
+          <mat-tab label="Active Posts">
+            <mat-card *ngIf="canEdit && !publicView" class="add-tile" (click)="addPost()">
               <mat-icon>add</mat-icon>
             </mat-card>
             <div class="active-products-container">

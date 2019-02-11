@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map'
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { Product } from '../class/product';
+import { Post } from '../class/post';
 import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import { LocationService } from '../services/location.service';
 import { DataService } from '../services/data.service';
@@ -16,9 +16,9 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-  products;
-  productList;
-  productListView = true;
+  posts;
+  postList;
+  postListView = true;
   profileUser: any;
   profile: any;
   authorizedUser: any;
@@ -50,7 +50,7 @@ export class ProfileComponent implements OnInit {
             if(this.profileUser && this.profile && ( this.profileUser.uid === this.profile.uid)) this.canEdit = true;
              
             if(this.profile) {
-              this.getProducts(this.profile)
+              this.getPosts(this.profile)
             }
           },(err) => {
             console.log('the err for finding user', err);
@@ -66,23 +66,23 @@ export class ProfileComponent implements OnInit {
   goToEditProfile() {
     this.router.navigate(['/profile/'+this.profileUser.uid+'/edit-profile' ])
   }
-  getProducts(profile) {
-    this.productList = this.dataService.getUserProducts(this.profile.uid)
-    this.productList.subscribe((prod) => {
-      this.products = prod;
+  getPosts(profile) {
+    this.postList = this.dataService.getUserPosts(this.profile.uid)
+    this.postList.subscribe((prod) => {
+      this.posts = prod;
     },  (err) => {})
   }
   
-  addProduct () {
-    this.productListView = false;
+  addPost () {
+    this.postListView = false;
   }
 
   doneAdding (ev) {
     if(ev.update) {
-      this.productListView = !this.productListView;
+      this.postListView = !this.postListView;
     } else {
-      this.productListView = !this.productListView;
-      this.getProducts(this.profile);
+      this.postListView = !this.postListView;
+      this.getPosts(this.profile);
     }
   }
 }

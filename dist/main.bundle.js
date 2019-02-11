@@ -17,14 +17,14 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 
 /***/ }),
 
-/***/ "../../../../../src/app/add-product/add-product.component.html":
+/***/ "../../../../../src/app/add-post/add-post.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"add-product-container\">\n    <mat-card >\n      <mat-card-header>\n        <mat-card-title>Add Product</mat-card-title>\n      </mat-card-header>\n      <div class=\"add-img\">\n        <input type=\"file\" accept=\"image/*\" (change)=\"onFileSelected($event.target.files)\">\n        <img mat-card-image width=\"250px\" height=\"250px\"  *ngIf=\"imageUrl\" [src]=\"imageUrl\" alt=\"Pink hair\">\n        <div class=\"text-overlay\">\n          <p>Add Photo</p>\n        </div> \n      </div>\n\n      <mat-card-content class=\"input-form-container\">\n\n        <div class=\"form-field-container\">\n          <mat-label>Product Name</mat-label>\n          <input matInput placeholder=\"Voluminous Shampoo with Avocado\" type=\"text\" [(ngModel)]=\"newProduct.name\">\n        </div>\n        <div class=\"form-field-container\">\n          <mat-label>Choose Brand</mat-label>\n          <mat-select placeholder=\"--Select--\" [(ngModel)]=\"newProduct.brand\">\n            <mat-option *ngFor=\"let brand of brandList\" [value]=\"brand\" >\n              {{brand}}\n            </mat-option>\n          </mat-select>\n        </div>\n        <div class=\"keyword-container form-field-container\">\n          <div>\n            <mat-label>Tags</mat-label>\n            <input matInput [(ngModel)]=\"newProduct.keywords\" placeholder=\"Keywords(ie: 4c, lace, easy diy)\">  \n          </div>          \n          <div>\n              <mat-label>Price ($):</mat-label><input [(ngModel)]=\"newProduct.price\" type=\"text\">\n          </div>\n        </div>\n        <div class=\"form-field-container details\">\n          <mat-label>Product Details</mat-label>\n          <textarea matInput type=\"text\" [(ngModel)]=\"newProduct.description\" placeholder=\"Tell us everything you know about the product\"></textarea>\n        </div>\n      \n      </mat-card-content>\n\n      <mat-card-actions >\n        <div class=\"action-set\">\n          <button class=\"cancel\" (click)=\"cancel()\" mat-button>Cancel</button>\n          <button *ngIf=\"canSend\" class=\"done\" (click)=\"done()\" mat-button>Done</button>\n        </div>\n      </mat-card-actions>\n    </mat-card>\n</div>"
+module.exports = "<div class=\"add-product-container\">\n    <mat-card >\n      <mat-card-header>\n        <mat-card-title>Post</mat-card-title>\n      </mat-card-header>\n      <div class=\"add-img\">\n        <input type=\"file\" accept=\"image/*\" (change)=\"onFileSelected($event.target.files)\">\n        <img mat-card-image width=\"250px\" height=\"250px\"  *ngIf=\"imageUrl\" [src]=\"imageUrl\" alt=\"Pink hair\">\n        <div class=\"text-overlay\">\n          <p>Add Photo</p>\n        </div> \n      </div>\n\n      <mat-card-content class=\"input-form-container\">\n        <div class=\"keyword-container form-field-container\">\n          <div>\n            <mat-label>Tags</mat-label>\n            <input matInput [(ngModel)]=\"newPost.keywords\" placeholder=\"Keywords(ie: 4c, lace, easy diy)\">  \n          </div>          \n        </div>\n        <div class=\"form-field-container details\">\n          <mat-label>Caption</mat-label>\n          <textarea matInput type=\"text\" [(ngModel)]=\"newPost.caption\" placeholder=\"Tell us more about this photo\"></textarea>\n        </div>\n      \n      </mat-card-content>\n\n      <mat-card-actions >\n        <div class=\"action-set\">\n          <button class=\"cancel\" (click)=\"cancel()\" mat-button>Cancel</button>\n          <button *ngIf=\"canSend\" class=\"done\" (click)=\"done()\" mat-button>Done</button>\n        </div>\n      </mat-card-actions>\n    </mat-card>\n</div>"
 
 /***/ }),
 
-/***/ "../../../../../src/app/add-product/add-product.component.scss":
+/***/ "../../../../../src/app/add-post/add-post.component.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -32,7 +32,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "router-outlet {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  max-width: 1380px; }\n\nmat-card-header {\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center; }\n\nmat-card-header mat-card-title {\n    font-size: 22px;\n    font-weight: 600; }\n\n.add-img {\n  width: 100%;\n  height: 200px;\n  background: url(\"/assets/img/imgicon.png\") center no-repeat;\n  background-size: 200px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n\n.add-img input {\n    width: 200px;\n    height: 160px;\n    position: relative;\n    opacity: 0;\n    z-index: 4; }\n\n.add-img .text-overlay {\n    background-color: #0000007d;\n    color: #ffffff;\n    position: relative;\n    bottom: 65px;\n    width: 200px;\n    text-align: center; }\n\n.input-form-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column; }\n\n.input-form-container .mat-select {\n    margin: 14px 0;\n    font-size: 16px; }\n\n.input-form-container .form-field-container {\n    margin: 10px 0; }\n\n.input-form-container .form-field-container input, .input-form-container .form-field-container textarea {\n      border: 1px solid #dfdfdf;\n      height: 44px;\n      font-size: 16px;\n      padding: 0px 10px;\n      cursor: pointer; }\n\n.input-form-container .form-field-container mat-label {\n      font-size: 16px;\n      font-weight: 200; }\n\n.input-form-container .details {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column; }\n\n.input-form-container textarea {\n    height: 100px; }\n\n.input-form-container mat-form-field {\n    color: #fff; }\n\n.input-form-container .keyword-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; }\n\n.input-form-container .keyword-container mat-form-field {\n      width: 100%; }\n\n.input-form-container .button-container {\n    width: 80px;\n    height: 35px; }\n\nmat-form-field input {\n  color: #000000; }\n\n.action-set {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: distribute;\n      justify-content: space-around; }\n\n.action-set button {\n    width: 170px; }\n\n.action-set .done {\n    background-color: #b5e2e5;\n    color: #ffffff; }\n\n.action-set .cancel {\n    background: rgba(255, 255, 255, 0);\n    color: #b5e2e5;\n    border: 1px solid #b5e2e5; }\n", ""]);
+exports.push([module.i, "router-outlet {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  max-width: 1380px; }\n\nmat-card-header {\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center; }\n\nmat-card-header mat-card-title {\n    font-size: 22px;\n    font-weight: 600; }\n\n.add-img {\n  width: 100%;\n  height: 200px;\n  background: url(\"/assets/img/imgicon.png\") center no-repeat;\n  background-size: 200px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n\n.add-img input {\n    width: 200px;\n    height: 160px;\n    position: relative;\n    opacity: 0;\n    z-index: 4; }\n\n.add-img .text-overlay {\n    background-color: #0000007d;\n    color: #ffffff;\n    position: relative;\n    bottom: 65px;\n    width: 200px;\n    text-align: center; }\n\n.input-form-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column; }\n\n.input-form-container .mat-select {\n    margin: 14px 0;\n    font-size: 16px; }\n\n.input-form-container .form-field-container {\n    margin: 10px 0; }\n\n.input-form-container .form-field-container input, .input-form-container .form-field-container textarea {\n      border: 1px solid #dfdfdf;\n      height: 44px;\n      font-size: 16px;\n      padding: 0px 10px;\n      cursor: pointer; }\n\n.input-form-container .form-field-container mat-label {\n      font-size: 16px;\n      font-weight: 200; }\n\n.input-form-container .details {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column; }\n\n.input-form-container textarea {\n    height: 100px; }\n\n.input-form-container mat-form-field {\n    color: #fff; }\n\n.input-form-container .keyword-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; }\n\n.input-form-container .keyword-container mat-form-field {\n      width: 100%; }\n\n.input-form-container .button-container {\n    width: 80px;\n    height: 35px; }\n\nmat-form-field input {\n  color: #000000; }\n\n.action-set {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: distribute;\n      justify-content: space-around; }\n\n.action-set button {\n    width: 170px; }\n\n.action-set .done {\n    background-color: #bcb5eb;\n    color: #ffffff; }\n\n.action-set .cancel {\n    background: rgba(255, 255, 255, 0);\n    color: #bcb5eb;\n    border: 1px solid #bcb5eb; }\n", ""]);
 
 // exports
 
@@ -42,11 +42,11 @@ module.exports = module.exports.toString();
 
 /***/ }),
 
-/***/ "../../../../../src/app/add-product/add-product.component.ts":
+/***/ "../../../../../src/app/add-post/add-post.component.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddProductComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddPostComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_firestore__ = __webpack_require__("../../../../angularfire2/firestore/index.js");
@@ -72,13 +72,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var newProduct = /** @class */ (function () {
-    function newProduct() {
+var newPost = /** @class */ (function () {
+    function newPost() {
     }
-    return newProduct;
+    return newPost;
 }());
-var AddProductComponent = /** @class */ (function () {
-    function AddProductComponent(router, afs, db, locationService, dataService, auth, userProfile) {
+var AddPostComponent = /** @class */ (function () {
+    function AddPostComponent(router, afs, db, locationService, dataService, auth, userProfile) {
         this.router = router;
         this.afs = afs;
         this.db = db;
@@ -86,7 +86,7 @@ var AddProductComponent = /** @class */ (function () {
         this.dataService = dataService;
         this.auth = auth;
         this.userProfile = userProfile;
-        this.doneAddingProduct = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
+        this.doneAddingPost = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["x" /* EventEmitter */]();
         this.imageUrl = null;
         this.canSend = true;
         this.categories = [
@@ -95,9 +95,8 @@ var AddProductComponent = /** @class */ (function () {
         this.brandList = [
             "Mane Choice", "Shea Moisture", "Janet Collection", "Other"
         ];
-        this.newProduct = {};
     }
-    AddProductComponent.prototype.ngOnInit = function () {
+    AddPostComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.locationService.getCurrentLocation(function (pos) {
             _this.location = pos;
@@ -106,49 +105,49 @@ var AddProductComponent = /** @class */ (function () {
         this.location = this.locationService.location;
         // console.log('this is the location attribute', this.location);
         // this.productList = this.db.list('/products');
-        // const product = this.db.list<Product>('/products');
+        // const product = this.db.list<Post>('/products');
         this.profileUser = this.auth.getCurrentUser();
     };
-    AddProductComponent.prototype.cancel = function () {
-        this.doneAddingProduct.emit({ update: false });
+    AddPostComponent.prototype.cancel = function () {
+        this.doneAddingPost.emit({ update: false });
     };
-    AddProductComponent.prototype.done = function () {
+    AddPostComponent.prototype.done = function () {
         var _this = this;
         if (this.location && this.location.long & this.location.lat) {
-            this.newProduct.uid = this.profileUser.uid;
-            this.newProduct.long = this.location.long;
-            this.newProduct.lat = this.location.lat;
-            this.newProduct.date = new Date().toISOString();
-            // this.productList.push(this.newProduct);
+            this.newPost.uid = this.profileUser.uid;
+            this.newPost.long = this.location.long;
+            this.newPost.lat = this.location.lat;
+            this.newPost.date = new Date().toISOString();
+            // this.productList.push(this.newPost);
             this.canSend = false;
-            this.data = this.dataService.addProduct(this.newProduct)
+            this.data = this.dataService.addPost(this.newPost)
                 .subscribe(function (prod) {
                 _this.canSend = true;
-                _this.doneAddingProduct.emit({ update: false });
+                _this.doneAddingPost.emit({ update: false });
             }, function (err) {
                 console.log('there was an error');
             });
         }
     };
-    AddProductComponent.prototype.onFileSelected = function (file) {
+    AddPostComponent.prototype.onFileSelected = function (file) {
         var _this = this;
         this.fileToUpload = file.item(0);
         var reader = new FileReader();
         reader.onload = function (event) {
             _this.imageUrl = event.target.result;
-            _this.newProduct.image = _this.imageUrl;
+            _this.newPost.image = _this.imageUrl;
         };
         reader.readAsDataURL(this.fileToUpload);
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["R" /* Output */])(),
         __metadata("design:type", Object)
-    ], AddProductComponent.prototype, "doneAddingProduct", void 0);
-    AddProductComponent = __decorate([
+    ], AddPostComponent.prototype, "doneAddingPost", void 0);
+    AddPostComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-add-product',
-            template: __webpack_require__("../../../../../src/app/add-product/add-product.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/add-product/add-product.component.scss")]
+            selector: 'app-add-post',
+            template: __webpack_require__("../../../../../src/app/add-post/add-post.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/add-post/add-post.component.scss")]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */],
             __WEBPACK_IMPORTED_MODULE_2_angularfire2_firestore__["a" /* AngularFirestore */],
@@ -157,8 +156,8 @@ var AddProductComponent = /** @class */ (function () {
             __WEBPACK_IMPORTED_MODULE_5__services_data_service__["a" /* DataService */],
             __WEBPACK_IMPORTED_MODULE_6__services_auth_auth_service__["a" /* AuthService */],
             __WEBPACK_IMPORTED_MODULE_7__class_user_profile__["a" /* UserProfile */]])
-    ], AddProductComponent);
-    return AddProductComponent;
+    ], AddPostComponent);
+    return AddPostComponent;
 }());
 
 
@@ -257,24 +256,24 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__supplyanddemand_supplyanddemand_component__ = __webpack_require__("../../../../../src/app/supplyanddemand/supplyanddemand.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__home_map_home_map_component__ = __webpack_require__("../../../../../src/app/home-map/home-map.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__map_view_map_view_component__ = __webpack_require__("../../../../../src/app/map-view/map-view.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__products_products_component__ = __webpack_require__("../../../../../src/app/products/products.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__landing_page_landing_page_component__ = __webpack_require__("../../../../../src/app/landing-page/landing-page.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__footer_footer_component__ = __webpack_require__("../../../../../src/app/footer/footer.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__shared_header_header_component__ = __webpack_require__("../../../../../src/app/shared/header/header.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__shared_action_button_action_button_component__ = __webpack_require__("../../../../../src/app/shared/action-button/action-button.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__login_login_component__ = __webpack_require__("../../../../../src/app/login/login.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__register_register_component__ = __webpack_require__("../../../../../src/app/register/register.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__user_user_component__ = __webpack_require__("../../../../../src/app/user/user.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__services_auth_auth_guard_service__ = __webpack_require__("../../../../../src/app/services/auth/auth-guard.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__services_auth_auth_service__ = __webpack_require__("../../../../../src/app/services/auth/auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__auth0_angular_jwt__ = __webpack_require__("../../../../@auth0/angular-jwt/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__services_location_service__ = __webpack_require__("../../../../../src/app/services/location.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__services_data_service__ = __webpack_require__("../../../../../src/app/services/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__landing_page_landing_page_component__ = __webpack_require__("../../../../../src/app/landing-page/landing-page.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__footer_footer_component__ = __webpack_require__("../../../../../src/app/footer/footer.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__shared_header_header_component__ = __webpack_require__("../../../../../src/app/shared/header/header.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__shared_action_button_action_button_component__ = __webpack_require__("../../../../../src/app/shared/action-button/action-button.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__login_login_component__ = __webpack_require__("../../../../../src/app/login/login.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__register_register_component__ = __webpack_require__("../../../../../src/app/register/register.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__user_user_component__ = __webpack_require__("../../../../../src/app/user/user.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__services_auth_auth_guard_service__ = __webpack_require__("../../../../../src/app/services/auth/auth-guard.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__services_auth_auth_service__ = __webpack_require__("../../../../../src/app/services/auth/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__auth0_angular_jwt__ = __webpack_require__("../../../../@auth0/angular-jwt/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__services_location_service__ = __webpack_require__("../../../../../src/app/services/location.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__services_data_service__ = __webpack_require__("../../../../../src/app/services/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__services_focus_generator_service__ = __webpack_require__("../../../../../src/app/services/focus-generator.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__create_demand_create_demand_component__ = __webpack_require__("../../../../../src/app/create-demand/create-demand.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__shared_modal_window_modal_window_component__ = __webpack_require__("../../../../../src/app/shared/modal-window/modal-window.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__privacy_terms_privacy_terms_component__ = __webpack_require__("../../../../../src/app/privacy-terms/privacy-terms.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_35__profile_profile_component__ = __webpack_require__("../../../../../src/app/profile/profile.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__add_product_add_product_component__ = __webpack_require__("../../../../../src/app/add-product/add-product.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_36__add_post_add_post_component__ = __webpack_require__("../../../../../src/app/add-post/add-post.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__shared_search_modal_search_modal_component__ = __webpack_require__("../../../../../src/app/shared/search-modal/search-modal.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__edit_profile_edit_profile_component__ = __webpack_require__("../../../../../src/app/edit-profile/edit-profile.component.ts");
@@ -282,6 +281,7 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_41__class_user_profile__ = __webpack_require__("../../../../../src/app/class/user-profile.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_42__signin_signin_component__ = __webpack_require__("../../../../../src/app/signin/signin.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_43__messages_messages_component__ = __webpack_require__("../../../../../src/app/messages/messages.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_44__daily_focus_home_daily_focus_home_component__ = __webpack_require__("../../../../../src/app/daily-focus-home/daily-focus-home.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -333,19 +333,21 @@ var firebaseConfig = __WEBPACK_IMPORTED_MODULE_13__environments_environment__["a
 
 
 
+
 var appRoutes = [
-    { path: 'search', component: __WEBPACK_IMPORTED_MODULE_20__landing_page_landing_page_component__["a" /* LandingPageComponent */] },
+    { path: 'search', component: __WEBPACK_IMPORTED_MODULE_19__landing_page_landing_page_component__["a" /* LandingPageComponent */] },
     { path: 'signin', component: __WEBPACK_IMPORTED_MODULE_42__signin_signin_component__["a" /* SigninComponent */] },
     { path: 'home', component: __WEBPACK_IMPORTED_MODULE_17__home_map_home_map_component__["a" /* HomeMapComponent */] },
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_20__landing_page_landing_page_component__["a" /* LandingPageComponent */] },
-    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_24__login_login_component__["a" /* LoginComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_27__services_auth_auth_guard_service__["a" /* AuthGuardService */]] },
-    { path: 'register', component: __WEBPACK_IMPORTED_MODULE_25__register_register_component__["a" /* RegisterComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_27__services_auth_auth_guard_service__["a" /* AuthGuardService */]] },
+    { path: '', component: __WEBPACK_IMPORTED_MODULE_19__landing_page_landing_page_component__["a" /* LandingPageComponent */] },
+    { path: 'login', component: __WEBPACK_IMPORTED_MODULE_23__login_login_component__["a" /* LoginComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_26__services_auth_auth_guard_service__["a" /* AuthGuardService */]] },
+    { path: 'register', component: __WEBPACK_IMPORTED_MODULE_24__register_register_component__["a" /* RegisterComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_26__services_auth_auth_guard_service__["a" /* AuthGuardService */]] },
     { path: 'messages', component: __WEBPACK_IMPORTED_MODULE_43__messages_messages_component__["a" /* MessagesComponent */] },
-    { path: 'user', component: __WEBPACK_IMPORTED_MODULE_26__user_user_component__["a" /* UserComponent */], resolve: { data: '' } },
+    { path: 'user', component: __WEBPACK_IMPORTED_MODULE_25__user_user_component__["a" /* UserComponent */], resolve: { data: '' } },
     { path: 'create-demand', component: __WEBPACK_IMPORTED_MODULE_32__create_demand_create_demand_component__["a" /* CreateDemandComponent */] },
     { path: 'privacy-terms', component: __WEBPACK_IMPORTED_MODULE_34__privacy_terms_privacy_terms_component__["a" /* PrivacyTermsComponent */] },
     { path: 'profile/:id', component: __WEBPACK_IMPORTED_MODULE_35__profile_profile_component__["a" /* ProfileComponent */] },
-    { path: 'profile/:id/edit-profile', component: __WEBPACK_IMPORTED_MODULE_39__edit_profile_edit_profile_component__["a" /* EditProfileComponent */] }
+    { path: 'profile/:id/edit-profile', component: __WEBPACK_IMPORTED_MODULE_39__edit_profile_edit_profile_component__["a" /* EditProfileComponent */] },
+    { path: 'daily-home', component: __WEBPACK_IMPORTED_MODULE_44__daily_focus_home_daily_focus_home_component__["a" /* DailyFocusHomeComponent */] }
 ];
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -357,23 +359,23 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_16__supplyanddemand_supplyanddemand_component__["a" /* SupplyanddemandComponent */],
                 __WEBPACK_IMPORTED_MODULE_17__home_map_home_map_component__["a" /* HomeMapComponent */],
                 __WEBPACK_IMPORTED_MODULE_18__map_view_map_view_component__["a" /* MapViewComponent */],
-                __WEBPACK_IMPORTED_MODULE_19__products_products_component__["a" /* ProductsComponent */],
-                __WEBPACK_IMPORTED_MODULE_20__landing_page_landing_page_component__["a" /* LandingPageComponent */],
-                __WEBPACK_IMPORTED_MODULE_21__footer_footer_component__["a" /* FooterComponent */],
-                __WEBPACK_IMPORTED_MODULE_22__shared_header_header_component__["a" /* HeaderComponent */],
-                __WEBPACK_IMPORTED_MODULE_23__shared_action_button_action_button_component__["a" /* ActionButtonComponent */],
-                __WEBPACK_IMPORTED_MODULE_24__login_login_component__["a" /* LoginComponent */],
-                __WEBPACK_IMPORTED_MODULE_25__register_register_component__["a" /* RegisterComponent */],
-                __WEBPACK_IMPORTED_MODULE_26__user_user_component__["a" /* UserComponent */],
+                __WEBPACK_IMPORTED_MODULE_19__landing_page_landing_page_component__["a" /* LandingPageComponent */],
+                __WEBPACK_IMPORTED_MODULE_20__footer_footer_component__["a" /* FooterComponent */],
+                __WEBPACK_IMPORTED_MODULE_21__shared_header_header_component__["a" /* HeaderComponent */],
+                __WEBPACK_IMPORTED_MODULE_22__shared_action_button_action_button_component__["a" /* ActionButtonComponent */],
+                __WEBPACK_IMPORTED_MODULE_23__login_login_component__["a" /* LoginComponent */],
+                __WEBPACK_IMPORTED_MODULE_24__register_register_component__["a" /* RegisterComponent */],
+                __WEBPACK_IMPORTED_MODULE_25__user_user_component__["a" /* UserComponent */],
                 __WEBPACK_IMPORTED_MODULE_32__create_demand_create_demand_component__["a" /* CreateDemandComponent */],
                 __WEBPACK_IMPORTED_MODULE_33__shared_modal_window_modal_window_component__["a" /* ModalWindowComponent */],
                 __WEBPACK_IMPORTED_MODULE_34__privacy_terms_privacy_terms_component__["a" /* PrivacyTermsComponent */],
                 __WEBPACK_IMPORTED_MODULE_35__profile_profile_component__["a" /* ProfileComponent */],
-                __WEBPACK_IMPORTED_MODULE_36__add_product_add_product_component__["a" /* AddProductComponent */],
+                __WEBPACK_IMPORTED_MODULE_36__add_post_add_post_component__["a" /* AddPostComponent */],
                 __WEBPACK_IMPORTED_MODULE_37__shared_search_modal_search_modal_component__["a" /* SearchModalComponent */],
                 __WEBPACK_IMPORTED_MODULE_39__edit_profile_edit_profile_component__["a" /* EditProfileComponent */],
                 __WEBPACK_IMPORTED_MODULE_42__signin_signin_component__["a" /* SigninComponent */],
                 __WEBPACK_IMPORTED_MODULE_43__messages_messages_component__["a" /* MessagesComponent */],
+                __WEBPACK_IMPORTED_MODULE_44__daily_focus_home_daily_focus_home_component__["a" /* DailyFocusHomeComponent */],
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* RouterModule */].forRoot(appRoutes, { useHash: false, onSameUrlNavigation: "reload" }),
@@ -407,7 +409,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_6__angular_material__["l" /* MatSelectModule */],
                 __WEBPACK_IMPORTED_MODULE_40__angular_common_http__["c" /* HttpClientModule */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_27__services_auth_auth_guard_service__["a" /* AuthGuardService */], __WEBPACK_IMPORTED_MODULE_28__services_auth_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_6__angular_material__["d" /* MatDialog */], __WEBPACK_IMPORTED_MODULE_30__services_location_service__["a" /* LocationService */], __WEBPACK_IMPORTED_MODULE_31__services_data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_29__auth0_angular_jwt__["a" /* JwtHelperService */], __WEBPACK_IMPORTED_MODULE_41__class_user_profile__["a" /* UserProfile */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_26__services_auth_auth_guard_service__["a" /* AuthGuardService */], __WEBPACK_IMPORTED_MODULE_27__services_auth_auth_service__["a" /* AuthService */], __WEBPACK_IMPORTED_MODULE_6__angular_material__["d" /* MatDialog */], __WEBPACK_IMPORTED_MODULE_29__services_location_service__["a" /* LocationService */], __WEBPACK_IMPORTED_MODULE_30__services_data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_28__auth0_angular_jwt__["a" /* JwtHelperService */], __WEBPACK_IMPORTED_MODULE_41__class_user_profile__["a" /* UserProfile */], __WEBPACK_IMPORTED_MODULE_31__services_focus_generator_service__["a" /* FocusGeneratorService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_15__app_component__["a" /* AppComponent */]],
             entryComponents: [
                 __WEBPACK_IMPORTED_MODULE_33__shared_modal_window_modal_window_component__["a" /* ModalWindowComponent */],
@@ -516,10 +518,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var Product = /** @class */ (function () {
-    function Product() {
+var Post = /** @class */ (function () {
+    function Post() {
     }
-    return Product;
+    return Post;
 }());
 var CreateDemandComponent = /** @class */ (function () {
     function CreateDemandComponent(afs) {
@@ -551,10 +553,80 @@ var CreateDemandComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/daily-focus-home/daily-focus-home.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<app-header></app-header>\n<section class=\"header-section\">\n  <div>\n      Today I am\n  </div>\n  <div>\n    {{currentFocus.name}}\n  </div>\n  <div class=\"button-container\">\n    <app-action-button ctaText=\"Refocus your day\" (click)=\"refocus()\"></app-action-button>\n  </div>\n</section>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/daily-focus-home/daily-focus-home.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+var escape = __webpack_require__("../../../../css-loader/lib/url/escape.js");
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".header-section {\n  margin-top: 50px;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  background: url(" + escape(__webpack_require__("../../../../../src/assets/img/ballinhandbg.jpg")) + ") no-repeat top;\n  background-size: 100vw; }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/daily-focus-home/daily-focus-home.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DailyFocusHomeComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_focus_generator_service__ = __webpack_require__("../../../../../src/app/services/focus-generator.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var DailyFocusHomeComponent = /** @class */ (function () {
+    function DailyFocusHomeComponent(focusGenerator) {
+        this.focusGenerator = focusGenerator;
+        this.currentFocus = focusGenerator.generateFocus();
+        console.log('this is the current focus : ', this.currentFocus);
+    }
+    DailyFocusHomeComponent.prototype.ngOnInit = function () {
+    };
+    DailyFocusHomeComponent.prototype.refocus = function () {
+        this.currentFocus = this.focusGenerator.generateFocus();
+    };
+    DailyFocusHomeComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-daily-focus-home',
+            template: __webpack_require__("../../../../../src/app/daily-focus-home/daily-focus-home.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/daily-focus-home/daily-focus-home.component.scss")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_focus_generator_service__["a" /* FocusGeneratorService */]])
+    ], DailyFocusHomeComponent);
+    return DailyFocusHomeComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/edit-profile/edit-profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<div class=\"add-product-container\">\n    <mat-card>\n      <mat-card-header>\n        <mat-card-title>Edit Profile</mat-card-title>\n      </mat-card-header>\n      <div class=\"add-img\">\n        <div class=\"input-overlay-container\">\n          <input type=\"file\" accept=\"image/*\" (change)=\"onFileSelected($event.target.files)\">\n          <div class=\"text-overlay\">\n            <p>Add Photo</p>\n          </div> \n        </div>\n        <img *ngIf=\"profile && profile.profileImage && !imageUrl\" [src]=\"profile.profileImage\" alt=\"Pink hair\">\n        <img *ngIf=\"imageUrl\" [src]=\"imageUrl\" alt=\"Pink hair\">\n      </div>\n\n      <mat-card-content class=\"input-form-container\">\n        \n        <div class=\"form-field-container\">\n          <mat-label>Store Name:</mat-label>\n          <input matInput placeholder=\"New Store Name\" type=\"text\" [(ngModel)]=\"profile.storeName\">\n        </div>\n        <div class=\"form-field-container\">\n          <mat-label>User Name:</mat-label>\n          <input matInput placeholder=\"User Name\" type=\"text\" [(ngModel)]=\"profile.userName\">\n        </div>\n        <div class=\"form-field-container\">\n          <mat-label>Address:</mat-label>\n          <input placeholder=\"search for location\" width=\"150px\" height=\"50px\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"off\" type=\"text\" class=\"form-control\" #search [(ngModel)]=\"updatedProfileUser.address || profile.address\" [formControl]=\"searchControl\">\n        </div>\n        <div class=\"form-field-container\">\n          <mat-label>Phone Number:</mat-label>\n          <input matInput placeholder=\"Phone Number\" type=\"tel\" [(ngModel)]=\"profile.phoneNumber\">\n        </div>\n        <div class=\"form-field-container\">\n          <mat-label>Email:</mat-label>\n          <input matInput placeholder=\"Email\" type=\"email\" [(ngModel)]=\"profile.email\">\n        </div>\n        <div class=\"form-field-container\">\n          <mat-label>Facebook Url:</mat-label>\n          <input matInput placeholder=\"facebook page\" type=\"text\" [(ngModel)]=\"profile.facebook\">\n        </div>\n        <div class=\"form-field-container\">\n          <mat-label>Instagram Url:</mat-label>\n          <input matInput placeholder=\"instagram page\" type=\"text\" [(ngModel)]=\"profile.instagram\">\n        </div>\n        <div class=\"form-field-container\">\n          <mat-label>Youtube Url:</mat-label>\n          <input matInput placeholder=\"instagram page\" type=\"text\" [(ngModel)]=\"profile.youtube\">\n        </div>\n        <div class=\"form-field-container\">\n          <mat-label>Website Url:</mat-label>\n          <input matInput placeholder=\"website url\" type=\"text\" [(ngModel)]=\"profile.website\">\n        </div>\n        <div class=\"form-field-container\" *ngFor=\"let day of storeHours; index as i;\">\n          <mat-label>{{day.day}}</mat-label>\n          <mat-select *ngIf=\"timeList\"  placeholder=\"--Open From--\" [(ngModel)]=\"day.open\">\n            <mat-option *ngFor=\"let time of timeList\" [value]=\"time\" >\n              {{time}}\n            </mat-option>\n          </mat-select>\n          <mat-select *ngIf=\"timeList\" placeholder=\"--Closed At--\" [(ngModel)]=\"day.closed\">\n            <mat-option *ngFor=\"let time of timeList\" [value]=\"time\" >\n              {{time}}\n            </mat-option>\n          </mat-select>\n        </div>\n        <!-- <agm-map [scrollwheel]=\"false\" [zoom]=\"zoom\">\n          <agm-marker  \n          [markerDraggable]=\"null\"\n          (dragEnd)=\"null\"></agm-marker>\n        </agm-map> -->\n\n\n        <!-- <div class=\"form-field-container\">\n          <mat-label>Choose Brand</mat-label>\n          <mat-select placeholder=\"--Select--\" [(ngModel)]=\"newProduct.brand\">\n            <mat-option *ngFor=\"let brand of brandList\" [value]=\"brand\" >\n              {{brand}}\n            </mat-option>\n          </mat-select>\n        </div>\n        <div class=\"keyword-container form-field-container\">\n          <div>\n            <mat-label>Tags</mat-label>\n            <input matInput [(ngModel)]=\"newProduct.keywords\" placeholder=\"Keywords(ie: 4c, lace, easy diy)\">  \n          </div>          \n          <div>\n              <mat-label>Price ($):</mat-label><input [(ngModel)]=\"newProduct.price\" type=\"text\">\n          </div>\n        </div>\n        <div class=\"form-field-container details\">\n          <mat-label>Product Details</mat-label>\n          <textarea matInput type=\"text\" [(ngModel)]=\"newProduct.description\" placeholder=\"Tell us everything you know about the product\"></textarea>\n        </div>\n       -->\n      </mat-card-content>\n\n      <mat-card-actions >\n        <div class=\"action-set\">\n          <button class=\"cancel\" (click)=\"goToProfile()\" mat-button>Cancel</button>\n          <button *ngIf=\"canSend\" class=\"done\" (click)=\"done()\" mat-button>Done</button>\n        </div>\n      </mat-card-actions>\n    </mat-card>\n</div>"
+module.exports = "<app-header></app-header>\n<div class=\"add-post-container\">\n    <mat-card>\n      <mat-card-header>\n        <mat-card-title>Edit Profile</mat-card-title>\n      </mat-card-header>\n      <div class=\"add-img\">\n        <div class=\"input-overlay-container\">\n          <input type=\"file\" accept=\"image/*\" (change)=\"onFileSelected($event.target.files)\">\n          <div class=\"text-overlay\">\n            <p>Add Photo</p>\n          </div> \n        </div>\n        <img *ngIf=\"profile && profile.profileImage && !imageUrl\" [src]=\"profile.profileImage\" alt=\"Pink hair\">\n        <img *ngIf=\"imageUrl\" [src]=\"imageUrl\" alt=\"Pink hair\">\n      </div>\n\n      <mat-card-content class=\"input-form-container\">\n        \n        <div class=\"form-field-container\">\n          <mat-label>Store Name:</mat-label>\n          <input matInput placeholder=\"New Store Name\" type=\"text\" [(ngModel)]=\"profile.storeName\">\n        </div>\n        <div class=\"form-field-container\">\n          <mat-label>User Name:</mat-label>\n          <input matInput placeholder=\"User Name\" type=\"text\" [(ngModel)]=\"profile.userName\">\n        </div>\n        <div class=\"form-field-container\">\n          <mat-label>Address:</mat-label>\n          <input placeholder=\"search for location\" width=\"150px\" height=\"50px\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"off\" type=\"text\" class=\"form-control\" #search [(ngModel)]=\"updatedProfileUser.address || profile.address\" [formControl]=\"searchControl\">\n        </div>\n        <div class=\"form-field-container\">\n          <mat-label>Phone Number:</mat-label>\n          <input matInput placeholder=\"Phone Number\" type=\"tel\" [(ngModel)]=\"profile.phoneNumber\">\n        </div>\n        <div class=\"form-field-container\">\n          <mat-label>Email:</mat-label>\n          <input matInput placeholder=\"Email\" type=\"email\" [(ngModel)]=\"profile.email\">\n        </div>\n        <div class=\"form-field-container\">\n          <mat-label>Facebook Url:</mat-label>\n          <input matInput placeholder=\"facebook page\" type=\"text\" [(ngModel)]=\"profile.facebook\">\n        </div>\n        <div class=\"form-field-container\">\n          <mat-label>Instagram Url:</mat-label>\n          <input matInput placeholder=\"instagram page\" type=\"text\" [(ngModel)]=\"profile.instagram\">\n        </div>\n        <div class=\"form-field-container\">\n          <mat-label>Youtube Url:</mat-label>\n          <input matInput placeholder=\"instagram page\" type=\"text\" [(ngModel)]=\"profile.youtube\">\n        </div>\n        <div class=\"form-field-container\">\n          <mat-label>Website Url:</mat-label>\n          <input matInput placeholder=\"website url\" type=\"text\" [(ngModel)]=\"profile.website\">\n        </div>\n        <div class=\"form-field-container\" *ngFor=\"let day of storeHours; index as i;\">\n          <mat-label>{{day.day}}</mat-label>\n          <mat-select *ngIf=\"timeList\"  placeholder=\"--Open From--\" [(ngModel)]=\"day.open\">\n            <mat-option *ngFor=\"let time of timeList\" [value]=\"time\" >\n              {{time}}\n            </mat-option>\n          </mat-select>\n          <mat-select *ngIf=\"timeList\" placeholder=\"--Closed At--\" [(ngModel)]=\"day.closed\">\n            <mat-option *ngFor=\"let time of timeList\" [value]=\"time\" >\n              {{time}}\n            </mat-option>\n          </mat-select>\n        </div>\n        <!-- <agm-map [scrollwheel]=\"false\" [zoom]=\"zoom\">\n          <agm-marker  \n          [markerDraggable]=\"null\"\n          (dragEnd)=\"null\"></agm-marker>\n        </agm-map> -->\n\n\n        <!-- <div class=\"form-field-container\">\n          <mat-label>Choose Brand</mat-label>\n          <mat-select placeholder=\"--Select--\" [(ngModel)]=\"newPost.brand\">\n            <mat-option *ngFor=\"let brand of brandList\" [value]=\"brand\" >\n              {{brand}}\n            </mat-option>\n          </mat-select>\n        </div>\n        <div class=\"keyword-container form-field-container\">\n          <div>\n            <mat-label>Tags</mat-label>\n            <input matInput [(ngModel)]=\"newPost.keywords\" placeholder=\"Keywords(ie: 4c, lace, easy diy)\">  \n          </div>          \n          <div>\n              <mat-label>Price ($):</mat-label><input [(ngModel)]=\"newPost.price\" type=\"text\">\n          </div>\n        </div>\n        <div class=\"form-field-container details\">\n          <mat-label>Post Details</mat-label>\n          <textarea matInput type=\"text\" [(ngModel)]=\"newPost.description\" placeholder=\"Tell us everything you know about the product\"></textarea>\n        </div>\n       -->\n      </mat-card-content>\n\n      <mat-card-actions >\n        <div class=\"action-set\">\n          <button class=\"cancel\" (click)=\"goToProfile()\" mat-button>Cancel</button>\n          <button *ngIf=\"canSend\" class=\"done\" (click)=\"done()\" mat-button>Done</button>\n        </div>\n      </mat-card-actions>\n    </mat-card>\n</div>"
 
 /***/ }),
 
@@ -566,7 +638,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "router-outlet {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  max-width: 1380px; }\n\nmat-card-header {\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center; }\n\nmat-card-header mat-card-title {\n    font-size: 22px;\n    font-weight: 600; }\n\n.add-product-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center; }\n\n.add-product-container mat-card {\n    margin-top: 60px;\n    width: 85vw;\n    max-width: 600px;\n    margin: 60px; }\n\n.add-img {\n  width: 100%;\n  height: 150px;\n  background: url(\"/assets/img/imgicon.png\") center no-repeat;\n  background-size: 150px 150px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n\n.add-img .input-overlay-container {\n    position: absolute;\n    z-index: 3;\n    width: 150px;\n    height: 150px; }\n\n.add-img input {\n    width: 150px;\n    height: 150px;\n    position: relative;\n    opacity: 0;\n    z-index: 4; }\n\n.add-img .text-overlay {\n    background-color: #0000007d;\n    color: #ffffff;\n    position: relative;\n    bottom: 100px;\n    width: 150px;\n    text-align: center; }\n\n.add-img img {\n    width: 150px;\n    height: 150px; }\n\n.input-form-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column; }\n\n.input-form-container .mat-select {\n    margin: 14px 0;\n    font-size: 16px; }\n\n.input-form-container .form-field-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    margin: 10px 0; }\n\n.input-form-container .form-field-container mat-label {\n      width: 30%; }\n\n.input-form-container .form-field-container input, .input-form-container .form-field-container textarea {\n      border: 1px solid #dfdfdf;\n      border-right: 0px;\n      border-left: 0px;\n      border-top: 0px;\n      height: 44px;\n      width: 70%;\n      font-size: 16px;\n      padding: 0px 10px;\n      cursor: pointer;\n      overflow-x: scroll; }\n\n.input-form-container .form-field-container mat-label {\n      font-size: 16px;\n      font-weight: 200; }\n\n.input-form-container .details {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column; }\n\n.input-form-container textarea {\n    height: 100px; }\n\n.input-form-container mat-form-field {\n    color: #fff; }\n\n.input-form-container .keyword-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; }\n\n.input-form-container .keyword-container mat-form-field {\n      width: 100%; }\n\n.input-form-container .button-container {\n    width: 80px;\n    height: 35px; }\n\nmat-form-field input {\n  color: #000000; }\n\n.action-set {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: distribute;\n      justify-content: space-around; }\n\n.action-set button {\n    width: 170px; }\n\n.action-set .done {\n    background-color: #b5e2e5;\n    color: #ffffff; }\n\n.action-set .cancel {\n    background: rgba(255, 255, 255, 0);\n    color: #b5e2e5;\n    border: 1px solid #b5e2e5; }\n", ""]);
+exports.push([module.i, "router-outlet {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  max-width: 1380px; }\n\nmat-card-header {\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center; }\n\nmat-card-header mat-card-title {\n    font-size: 22px;\n    font-weight: 600; }\n\n.add-post-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center; }\n\n.add-post-container mat-card {\n    margin-top: 60px;\n    width: 85vw;\n    max-width: 600px;\n    margin: 60px; }\n\n.add-img {\n  width: 100%;\n  height: 150px;\n  background: url(\"/assets/img/imgicon.png\") center no-repeat;\n  background-size: 150px 150px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n\n.add-img .input-overlay-container {\n    position: absolute;\n    z-index: 3;\n    width: 150px;\n    height: 150px; }\n\n.add-img input {\n    width: 150px;\n    height: 150px;\n    position: relative;\n    opacity: 0;\n    z-index: 4; }\n\n.add-img .text-overlay {\n    background-color: #0000007d;\n    color: #ffffff;\n    position: relative;\n    bottom: 100px;\n    width: 150px;\n    text-align: center; }\n\n.add-img img {\n    width: 150px;\n    height: 150px; }\n\n.input-form-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column; }\n\n.input-form-container .mat-select {\n    margin: 14px 0;\n    font-size: 16px; }\n\n.input-form-container .form-field-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    margin: 10px 0; }\n\n.input-form-container .form-field-container mat-label {\n      width: 30%; }\n\n.input-form-container .form-field-container input, .input-form-container .form-field-container textarea {\n      border: 1px solid #dfdfdf;\n      border-right: 0px;\n      border-left: 0px;\n      border-top: 0px;\n      height: 44px;\n      width: 70%;\n      font-size: 16px;\n      padding: 0px 10px;\n      cursor: pointer;\n      overflow-x: scroll; }\n\n.input-form-container .form-field-container mat-label {\n      font-size: 16px;\n      font-weight: 200; }\n\n.input-form-container .details {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column; }\n\n.input-form-container textarea {\n    height: 100px; }\n\n.input-form-container mat-form-field {\n    color: #fff; }\n\n.input-form-container .keyword-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between; }\n\n.input-form-container .keyword-container mat-form-field {\n      width: 100%; }\n\n.input-form-container .button-container {\n    width: 80px;\n    height: 35px; }\n\nmat-form-field input {\n  color: #000000; }\n\n.action-set {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: distribute;\n      justify-content: space-around; }\n\n.action-set button {\n    width: 170px; }\n\n.action-set .done {\n    background-color: #bcb5eb;\n    color: #ffffff; }\n\n.action-set .cancel {\n    background: rgba(255, 255, 255, 0);\n    color: #bcb5eb;\n    border: 1px solid #bcb5eb; }\n", ""]);
 
 // exports
 
@@ -856,7 +928,7 @@ var FooterComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/home-map/home-map.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"page-wrapper\">\n  <app-header> </app-header>\n    <!-- <div class=\"main-container overlay\"></div> -->\n  <div class=\"main-container\">\n    <div id=\"product-list-container\">\n        <div class=\"active-products-container\">  \n          <div class=\"product-tile\" *ngFor=\"let user of users\">\n              <div class=\"info-container\" (click)=\"viewProducts(user)\">\n                  <div class=\"product-img\">\n                    <img mat-card-image *ngIf=\"user.profileImage\" [src]=\"user.profileImage\" alt=\"Photo of a Shiba Inu\">\n                    <img mat-card-image *ngIf=\"!user.profileImage\" src=\"../../assets/img/imgicon.png\" alt=\"NO user Image\">                \n                  </div>\n                  <div class=\"text-container\">\n                      <p>{{user.storeName}}</p>\n                      <p><mat-icon>location_on</mat-icon>{{user.address}}</p>\n                      <div>\n                        <button mat-button (click)=\"viewProducts(user)\">View Products</button>\n                      </div>\n                  </div>\n              </div>\n            </div>\n        </div>\n    </div>\n    <div id=\"map-container\">\n      <div class=\"container\">\n        <div class=\"form-group\">\n          <input placeholder=\"search for location\" width=\"150px\" height=\"50px\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"off\" type=\"text\" class=\"form-control\" #search [formControl]=\"searchControl\">\n        </div>\n        <agm-map *ngIf=\"userList\" [latitude]=\"latitude\" [longitude]=\"longitude\" [scrollwheel]=\"false\" [zoom]=\"zoom\">\n          <div *ngFor=\"let m of users; let i = index\">\n            <agm-marker [latitude]=\"m.lat\" [longitude]=\"m.long\"  \n            [markerDraggable]=\"null\"\n            (dragEnd)=\"null\"></agm-marker>\n          </div>\n        </agm-map>\n      </div>\n    </div>\n  </div>\n  <app-footer class=\"footer\"></app-footer>\n\n</div>"
+module.exports = "<div class=\"page-wrapper\">\n  <app-header> </app-header>\n    <!-- <div class=\"main-container overlay\"></div> -->\n  <div class=\"main-container\">\n    <div id=\"product-list-container\">\n        <div class=\"active-products-container\">  \n          <div class=\"product-tile\" *ngFor=\"let user of users\">\n              <div class=\"info-container\" (click)=\"viewPosts(user)\">\n                  <div class=\"product-img\">\n                    <img mat-card-image *ngIf=\"user.profileImage\" [src]=\"user.profileImage\" alt=\"Photo of a Shiba Inu\">\n                    <img mat-card-image *ngIf=\"!user.profileImage\" src=\"../../assets/img/imgicon.png\" alt=\"NO user Image\">                \n                  </div>\n                  <div class=\"text-container\">\n                      <p>{{user.storeName}}</p>\n                      <p><mat-icon>location_on</mat-icon>{{user.address}}</p>\n                      <div>\n                        <button mat-button (click)=\"viewPosts(user)\">View Posts</button>\n                      </div>\n                  </div>\n              </div>\n            </div>\n        </div>\n    </div>\n    <div id=\"map-container\">\n      <div class=\"container\">\n        <div class=\"form-group\">\n          <input placeholder=\"search for location\" width=\"150px\" height=\"50px\" autocorrect=\"off\" autocapitalize=\"off\" spellcheck=\"off\" type=\"text\" class=\"form-control\" #search [formControl]=\"searchControl\">\n        </div>\n        <agm-map *ngIf=\"userList\" [latitude]=\"latitude\" [longitude]=\"longitude\" [scrollwheel]=\"false\" [zoom]=\"zoom\">\n          <div *ngFor=\"let m of users; let i = index\">\n            <agm-marker [latitude]=\"m.lat\" [longitude]=\"m.long\"  \n            [markerDraggable]=\"null\"\n            (dragEnd)=\"null\"></agm-marker>\n          </div>\n        </agm-map>\n      </div>\n    </div>\n  </div>\n  <app-footer class=\"footer\"></app-footer>\n\n</div>"
 
 /***/ }),
 
@@ -943,7 +1015,7 @@ var HomeMapComponent = /** @class */ (function () {
         // this.products = this.db.list('/products').valueChanges();
         console.log('this is the users', this.users);
         this.done = true;
-        this.productList = this.dataService.getAllProducts()
+        this.productList = this.dataService.getAllPosts()
             .subscribe(function (product) {
             _this.products = product;
             console.log('this is the product list', _this.products);
@@ -988,7 +1060,7 @@ var HomeMapComponent = /** @class */ (function () {
             });
         });
     };
-    HomeMapComponent.prototype.viewProducts = function (user) {
+    HomeMapComponent.prototype.viewPosts = function (user) {
         this.dataService.profileLookup = user;
         this.router.navigate(['/profile/' + user.uid]);
     };
@@ -1070,7 +1142,7 @@ var HomeMapComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/landing-page/landing-page.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-header></app-header>\n<section id=\"home\">\n  <div class=\"content-container\">\n    <div class=\"text-container\">\n        <h2 class=\"heading\">\n            Find the best foods in your area\n        </h2>\n        <p class=\"sub-heading\">in your neighborhood, when you see it</p>\n        <!-- <div *ngFor=\"let category of categories | async\">\n          {{category| json}}\n          \n                  <div *ngFor=\"let cat of category.subcategories\">  {{cat | json}}\n                      \n                  </div>\n        </div> -->\n    </div>\n  \n    <div class=\"main-content full\">\n        <!-- <button [matMenuTriggerFor]=\"search\">\n          <input type=\"text\" placeholder=\"products, brand, trends\">\n          <input placeholder=\"Current Location\">\n        </button> -->\n        <div class=\"button-container\">\n          <app-action-button ctaText=\"Search\" (click)=\"goToMapView()\"></app-action-button>\n        </div>\n        <!-- <mat-menu #search=\"matMenu\"> \n            <button (click)=\"searchDatabase()\" mat-menu-item *ngFor=\"let category of categories | async\">  {{category.name | json}}</button>\n        </mat-menu>  -->\n    </div>\n\n    <div class=\"main-content mobile\">\n      <!-- <button [matMenuTriggerFor]=\"menu\">\n        <input type=\"text\" name=\"\" id=\"\" placeholder=\"products, brand, trends\" >\n      </button> -->\n      <div class=\"button-container\">\n        <app-action-button (click)=\"goToMapView()\" ctaText=\"Search\" size=\"'md'\"></app-action-button>\n      </div>\n      <!-- <mat-menu #menu=\"matMenu\"> \n          <button (click)=\"searchDatabase()\" mat-menu-item *ngFor=\"let category of categories | async\">  {{category.name | json}}</button>\n      </mat-menu>  -->\n      \n    </div>\n    \n  </div>\n</section>\n<!-- \n<aside>\n    <h3>The #1 platform for local store owners</h3>\n    <p>Manage your business, accept payments and grow your clientele using ProductMap software</p>\n    <button mat-raised-button >Set up your store</button>  \n  </aside>\n<section id=\"browse\">\n  <h1>Browse & Discover</h1>\n  <mat-grid-list cols=\"3\" class=\"content-container full\">\n    <mat-grid-tile class=\"block-one\">SUPPLIERS</mat-grid-tile>\n    <mat-grid-tile class=\"block-two\">HI-IN-DEMAND</mat-grid-tile>\n    <mat-grid-tile class=\"block-three\">TRENDS</mat-grid-tile>\n  </mat-grid-list>\n  <mat-grid-list cols=\"1\" class=\"content-container mobile\">\n      <mat-grid-tile class=\"block-one\">HI-IN-DEMAND</mat-grid-tile>\n      <mat-grid-tile class=\"block-two\">SUPPLIERS</mat-grid-tile>\n      <mat-grid-tile class=\"block-three\">TRENDS</mat-grid-tile>\n    </mat-grid-list>\n</section> -->\n<app-footer class=\"footer\"></app-footer>"
+module.exports = "<app-header></app-header>\n<section id=\"home\">\n  <div class=\"content-container\">\n    <div class=\"text-container\">\n        <h5 class=\"subheading\">\n            Start your daily destiny focus now\n        </h5>\n        <h2 class=\"heading\">\n          Today I am...\n      </h2>\n        <!-- <p class=\"sub-heading\">in your neighborhood, when you see it</p> -->\n        <!-- <div *ngFor=\"let category of categories | async\">\n          {{category| json}}\n          \n                  <div *ngFor=\"let cat of category.subcategories\">  {{cat | json}}\n                      \n                  </div>\n        </div> -->\n    </div>\n  \n    <div class=\"main-content full\">\n        <!-- <button [matMenuTriggerFor]=\"search\">\n          <input type=\"text\" placeholder=\"products, brand, trends\">\n          <input placeholder=\"Current Location\">\n        </button> -->\n        <div class=\"button-container\">\n          <app-action-button ctaText=\"Start\" (click)=\"startDailyFocus()\"></app-action-button>\n        </div>\n        <!-- <mat-menu #search=\"matMenu\"> \n            <button (click)=\"searchDatabase()\" mat-menu-item *ngFor=\"let category of categories | async\">  {{category.name | json}}</button>\n        </mat-menu>  -->\n    </div>\n\n    <div class=\"main-content mobile\">\n      <!-- <button [matMenuTriggerFor]=\"menu\">\n        <input type=\"text\" name=\"\" id=\"\" placeholder=\"products, brand, trends\" >\n      </button> -->\n      <div class=\"button-container\">\n        <app-action-button (click)=\"startDailyFocus()\" ctaText=\"Search\" size=\"'md'\"></app-action-button>\n      </div>\n      <!-- <mat-menu #menu=\"matMenu\"> \n          <button (click)=\"searchDatabase()\" mat-menu-item *ngFor=\"let category of categories | async\">  {{category.name | json}}</button>\n      </mat-menu>  -->\n      \n    </div>\n    \n  </div>\n</section>\n<!-- \n<aside>\n    <h3>The #1 platform for local store owners</h3>\n    <p>Manage your business, accept payments and grow your clientele using PostMap software</p>\n    <button mat-raised-button >Set up your store</button>  \n  </aside>\n<section id=\"browse\">\n  <h1>Browse & Discover</h1>\n  <mat-grid-list cols=\"3\" class=\"content-container full\">\n    <mat-grid-tile class=\"block-one\">SUPPLIERS</mat-grid-tile>\n    <mat-grid-tile class=\"block-two\">HI-IN-DEMAND</mat-grid-tile>\n    <mat-grid-tile class=\"block-three\">TRENDS</mat-grid-tile>\n  </mat-grid-list>\n  <mat-grid-list cols=\"1\" class=\"content-container mobile\">\n      <mat-grid-tile class=\"block-one\">HI-IN-DEMAND</mat-grid-tile>\n      <mat-grid-tile class=\"block-two\">SUPPLIERS</mat-grid-tile>\n      <mat-grid-tile class=\"block-three\">TRENDS</mat-grid-tile>\n    </mat-grid-list>\n</section> -->\n<app-footer class=\"footer\"></app-footer>"
 
 /***/ }),
 
@@ -1083,7 +1155,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "router-outlet {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  max-width: 1380px; }\n\n#home {\n  background: url(" + escape(__webpack_require__("../../../../../src/assets/img/homebg.jpg")) + ") no-repeat top;\n  background-size: 2000px;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  height: 100vh; }\n\n#home .text-container {\n    margin: 15px;\n    text-align: center; }\n\n#home .heading, #home .sub-heading {\n    margin: 0; }\n\n#home .heading {\n    color: #fff;\n    font-size: 18px;\n    margin: 0; }\n\n#home .sub-heading {\n    color: #D0D0D0; }\n\n#home mat-form-field {\n    color: #fff; }\n\n.mat-form-field-label {\n  color: red !important; }\n\nmat-grid-tile {\n  background: lightblue; }\n\naside {\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  text-align: center;\n  background: #b5e2e5;\n  color: #fff;\n  padding: 30px 0px; }\n\naside button.mat-raised-button {\n    color: #000; }\n\naside h3 {\n    margin: 0; }\n\n.header {\n  position: fixed;\n  top: 0; }\n\n.main-content .button-container {\n  width: 117px; }\n\n.main-content.full {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center; }\n\n.main-content.full input {\n    background: #fff;\n    height: 50px;\n    width: 150px;\n    padding-left: 10px;\n    border: 1px solid #eaeaea; }\n\n#browse .content-container.mobile {\n  display: none; }\n\n#browse mat-grid-tile {\n  color: #fff; }\n\n#browse mat-grid-tile.block-two {\n  background: url(" + escape(__webpack_require__("../../../../../src/assets/img/beautysupply.jpg")) + ") no-repeat top;\n  background-size: 152vw; }\n\n#browse mat-grid-tile.block-one {\n  background: url(" + escape(__webpack_require__("../../../../../src/assets/img/mayvenn.jpg")) + ") no-repeat top; }\n\n#browse mat-grid-tile.block-three {\n  background: url(" + escape(__webpack_require__("../../../../../src/assets/img/dreads.jpg")) + ") no-repeat top; }\n\n.main-content.mobile {\n  display: none; }\n\n@media (max-width: 600px) {\n  #home {\n    height: 100vh; }\n  .main-content.full {\n    display: none; }\n  .main-content.mobile {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center; }\n    .main-content.mobile input {\n      background: #fff;\n      height: 50px;\n      min-width: 150px;\n      width: 50vw;\n      padding-left: 10px;\n      border: 1px solid #eaeaea; }\n  #browse .content-container.full {\n    display: none; }\n  #browse .content-container.mobile {\n    display: inherit; }\n  #browse mat-grid-tile.block-two {\n    background: url(" + escape(__webpack_require__("../../../../../src/assets/img/mayvenn.jpg")) + ") no-repeat top 66vw; } }\n\napp-footer {\n  position: fixed;\n  bottom: 0;\n  width: 100%; }\n", ""]);
+exports.push([module.i, "router-outlet {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  max-width: 1380px; }\n\n#home {\n  background: url(" + escape(__webpack_require__("../../../../../src/assets/img/ballinhandbg.jpg")) + ") no-repeat top;\n  background-size: 100vw;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  height: 100vh; }\n\n#home .text-container {\n    margin: 15px;\n    text-align: center;\n    width: 350px; }\n\n#home .subheading {\n    font-weight: 100;\n    size: 18px;\n    color: #fff; }\n\n#home .heading, #home .sub-heading {\n    margin: 0; }\n\n#home .heading {\n    color: #fff;\n    font-size: 24px;\n    margin: 0; }\n\n#home .sub-heading {\n    color: #D0D0D0; }\n\n#home mat-form-field {\n    color: #fff; }\n\n.mat-form-field-label {\n  color: red !important; }\n\nmat-grid-tile {\n  background: lightblue; }\n\naside {\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  text-align: center;\n  background: #bcb5eb;\n  color: #fff;\n  padding: 30px 0px; }\n\naside button.mat-raised-button {\n    color: #000; }\n\naside h3 {\n    margin: 0; }\n\n.header {\n  position: fixed;\n  top: 0; }\n\n.main-content .button-container {\n  width: 117px; }\n\n.main-content.full {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center; }\n\n.main-content.full input {\n    background: #fff;\n    height: 50px;\n    width: 150px;\n    padding-left: 10px;\n    border: 1px solid #eaeaea; }\n\n#browse .content-container.mobile {\n  display: none; }\n\n#browse mat-grid-tile {\n  color: #fff; }\n\n#browse mat-grid-tile.block-two {\n  background: url(" + escape(__webpack_require__("../../../../../src/assets/img/beautysupply.jpg")) + ") no-repeat top;\n  background-size: 152vw; }\n\n#browse mat-grid-tile.block-one {\n  background: url(" + escape(__webpack_require__("../../../../../src/assets/img/mayvenn.jpg")) + ") no-repeat top; }\n\n#browse mat-grid-tile.block-three {\n  background: url(" + escape(__webpack_require__("../../../../../src/assets/img/dreads.jpg")) + ") no-repeat top; }\n\n.main-content.mobile {\n  display: none; }\n\n@media (max-width: 600px) {\n  #home {\n    height: 100vh; }\n  .main-content.full {\n    display: none; }\n  .main-content.mobile {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center; }\n    .main-content.mobile input {\n      background: #fff;\n      height: 50px;\n      min-width: 150px;\n      width: 50vw;\n      padding-left: 10px;\n      border: 1px solid #eaeaea; }\n  #browse .content-container.full {\n    display: none; }\n  #browse .content-container.mobile {\n    display: inherit; }\n  #browse mat-grid-tile.block-two {\n    background: url(" + escape(__webpack_require__("../../../../../src/assets/img/mayvenn.jpg")) + ") no-repeat top 66vw; } }\n\napp-footer {\n  position: fixed;\n  bottom: 0;\n  width: 100%; }\n", ""]);
 
 // exports
 
@@ -1149,8 +1221,8 @@ var LandingPageComponent = /** @class */ (function () {
         //   console.log('these are the products', products);
         // })
     };
-    LandingPageComponent.prototype.goToMapView = function () {
-        this.router.navigate(['/home']);
+    LandingPageComponent.prototype.startDailyFocus = function () {
+        this.router.navigate(['/daily-home']);
     };
     LandingPageComponent.prototype.searchDatabase = function () {
         // if(this.categories) {
@@ -1418,71 +1490,10 @@ var PrivacyTermsComponent = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "../../../../../src/app/products/products.component.html":
-/***/ (function(module, exports) {
-
-module.exports = "<p>\n  products works!\n</p>\n"
-
-/***/ }),
-
-/***/ "../../../../../src/app/products/products.component.scss":
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
-// imports
-
-
-// module
-exports.push([module.i, "", ""]);
-
-// exports
-
-
-/*** EXPORTS FROM exports-loader ***/
-module.exports = module.exports.toString();
-
-/***/ }),
-
-/***/ "../../../../../src/app/products/products.component.ts":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProductsComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-var ProductsComponent = /** @class */ (function () {
-    function ProductsComponent() {
-    }
-    ProductsComponent.prototype.ngOnInit = function () {
-    };
-    ProductsComponent = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-            selector: 'app-products',
-            template: __webpack_require__("../../../../../src/app/products/products.component.html"),
-            styles: [__webpack_require__("../../../../../src/app/products/products.component.scss")]
-        }),
-        __metadata("design:paramtypes", [])
-    ], ProductsComponent);
-    return ProductsComponent;
-}());
-
-
-
-/***/ }),
-
 /***/ "../../../../../src/app/profile/profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"page-wrapper\">\n  <app-header></app-header>\n  <div class=\"main-container\">\n    <div>\n      <div id=\"profile\" *ngIf=\"productListView\" [ngClass]=\"{'profile-display': !productListView}\">\n        <div>\n          <div class=\"profile-pic\">\n            <img *ngIf=\"profile\" src=\"{{profile.profileImage}}\" alt=\"\">\n          </div>\n          <div class=\"info-container\">\n            <div (click)=\"goToEditProfile()\" class=\"pen\" *ngIf=\"canEdit && !publicView\">\n              <p>Edit Profile</p>\n              <mat-icon>edit</mat-icon>\n            </div>\n            <div *ngIf=\"profile\" class=\"username\">{{profile.storeName}}</div>\n            <div class=\"review-icon\" *ngIf=\"canEdit && publicView\">\n              <div *ngFor=\"let star of stars\">\n                  <mat-icon>star_border</mat-icon>\n              </div> \n              <p>Reviews</p>\n            </div>\n            <p class=\"address-container\" *ngIf=\"profile.address\">\n                <mat-icon>location_on</mat-icon> {{profile.address}}\n            </p>\n            <p class=\"address-container\" *ngIf=\"!profile.address\">\n                <mat-icon>location_on</mat-icon> Worldwide\n            </p>\n            <div *ngIf=\"canEdit && !publicView\">\n              <app-action-button (click)=\"toggleProfileView()\" *ngIf=\"canEdit\" class=\"profile-button\" ctaText=\"Preview Public Mode\" size=\"'lg'\"></app-action-button>\n            </div> \n            <div *ngIf=\"canEdit && publicView\">\n              <app-action-button (click)=\"toggleProfileView()\" *ngIf=\"canEdit\" class=\"profile-button\" ctaText=\"Edit Mode\" size=\"'lg'\"></app-action-button>\n            </div>  \n            <div *ngIf=\"!canEdit\">\n              <app-action-button *ngIf=\"!canEdit\" class=\"profile-button\" ctaText=\"Contact Seller\" size=\"'lg'\"></app-action-button>\n            </div>    \n          </div>\n        </div>\n      </div>\n      <div class=\"add-product-container\">\n        <app-add-product (doneAddingProduct)=\"doneAdding($event)\" *ngIf=\"!productListView\"></app-add-product>\n      </div>\n    </div>\n\n    <div  id=\"products\">\n        <mat-tab-group [selectedIndex]=\"selectedTab\" *ngIf=\"productListView\">\n          <mat-tab label=\"Active Products\">\n            <mat-card *ngIf=\"canEdit && !publicView\" class=\"add-tile\" (click)=\"addProduct()\">\n              <mat-icon>add</mat-icon>\n            </mat-card>\n            <div class=\"active-products-container\">\n\n              <mat-card class=\"product-tile\" *ngFor=\"let product of products\">\n                  <div class=\"profile-pic\">\n                    <img mat-card-image *ngIf=\"product.image\" src=\"{{product.image}}\" alt=\"Photo of a Shiba Inu\">\n                  </div>\n                  <mat-card-content>\n                      {{product.name}}\n                      {{product.brand}}\n                      {{product.description}}   \n                  </mat-card-content>\n                  <mat-card-actions>\n                    <button mat-button>${{product.price}}</button>\n                  </mat-card-actions>\n                </mat-card>\n            </div>\n          </mat-tab>\n          <mat-tab label=\"Out of stock\">\n              \n            </mat-tab>\n        </mat-tab-group>\n    </div>\n  </div>\n  <app-footer class=\"footer\"></app-footer>\n</div>"
+module.exports = "<div class=\"page-wrapper\">\n  <app-header></app-header>\n  <div class=\"main-container\">\n    <div>\n      <div id=\"profile\" *ngIf=\"productListView\" [ngClass]=\"{'profile-display': !productListView}\">\n        <div>\n          <div class=\"profile-pic\">\n            <img *ngIf=\"profile\" src=\"{{profile.profileImage}}\" alt=\"\">\n          </div>\n          <div class=\"info-container\">\n            <div (click)=\"goToEditProfile()\" class=\"pen\" *ngIf=\"canEdit && !publicView\">\n              <p>Edit Profile</p>\n              <mat-icon>edit</mat-icon>\n            </div>\n            <div *ngIf=\"profile\" class=\"username\">{{profile.storeName}}</div>\n            <div class=\"review-icon\" *ngIf=\"canEdit && publicView\">\n              <div *ngFor=\"let star of stars\">\n                  <mat-icon>star_border</mat-icon>\n              </div> \n              <p>Reviews</p>\n            </div>\n            <p class=\"address-container\" *ngIf=\"profile.address\">\n                <mat-icon>location_on</mat-icon> {{profile.address}}\n            </p>\n            <p class=\"address-container\" *ngIf=\"!profile.address\">\n                <mat-icon>location_on</mat-icon> Worldwide\n            </p>\n            <div *ngIf=\"canEdit && !publicView\">\n              <app-action-button (click)=\"toggleProfileView()\" *ngIf=\"canEdit\" class=\"profile-button\" ctaText=\"Preview Public Mode\" size=\"'lg'\"></app-action-button>\n            </div> \n            <div *ngIf=\"canEdit && publicView\">\n              <app-action-button (click)=\"toggleProfileView()\" *ngIf=\"canEdit\" class=\"profile-button\" ctaText=\"Edit Mode\" size=\"'lg'\"></app-action-button>\n            </div>  \n            <div *ngIf=\"!canEdit\">\n              <app-action-button *ngIf=\"!canEdit\" class=\"profile-button\" ctaText=\"Contact Seller\" size=\"'lg'\"></app-action-button>\n            </div>    \n          </div>\n        </div>\n      </div>\n      <div class=\"add-post-container\">\n        <app-add-post (doneAddingPost)=\"doneAdding($event)\" *ngIf=\"!productListView\"></app-add-post>\n      </div>\n    </div>\n\n    <div  id=\"products\">\n        <mat-tab-group [selectedIndex]=\"selectedTab\" *ngIf=\"productListView\">\n          <mat-tab label=\"Active Posts\">\n            <mat-card *ngIf=\"canEdit && !publicView\" class=\"add-tile\" (click)=\"addPost()\">\n              <mat-icon>add</mat-icon>\n            </mat-card>\n            <div class=\"active-products-container\">\n\n              <mat-card class=\"product-tile\" *ngFor=\"let product of products\">\n                  <div class=\"profile-pic\">\n                    <img mat-card-image *ngIf=\"product.image\" src=\"{{product.image}}\" alt=\"Photo of a Shiba Inu\">\n                  </div>\n                  <mat-card-content>\n                      {{product.name}}\n                      {{product.brand}}\n                      {{product.description}}   \n                  </mat-card-content>\n                  <mat-card-actions>\n                    <button mat-button>${{product.price}}</button>\n                  </mat-card-actions>\n                </mat-card>\n            </div>\n          </mat-tab>\n          <mat-tab label=\"Out of stock\">\n              \n            </mat-tab>\n        </mat-tab-group>\n    </div>\n  </div>\n  <app-footer class=\"footer\"></app-footer>\n</div>"
 
 /***/ }),
 
@@ -1494,7 +1505,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "router-outlet {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  max-width: 1380px; }\n\n.main-container {\n  padding: 15px; }\n\n#profile, #products {\n  margin: 15px;\n  position: relative;\n  top: 45px; }\n\n#profile {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  max-width: 980px;\n  min-height: 200px;\n  height: 100%; }\n\n#profile .address-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex; }\n\n#profile .profile-pic img {\n    width: 100px;\n    height: 100px;\n    border-radius: 100%;\n    margin-bottom: 20px;\n    background: url(\"/assets/img/imgicon.png\") center;\n    background-size: cover; }\n\n#profile .info-container {\n    margin: 0px 20px; }\n\n#profile .pen {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    text-align: right;\n    -webkit-box-pack: end;\n        -ms-flex-pack: end;\n            justify-content: flex-end; }\n\n#profile .pen p {\n      margin: 0 10px; }\n\n#profile .review-icon {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center; }\n\n#profile .review-icon mat-icon {\n      line-height: 1.4; }\n\n#profile .review-icon p {\n      margin: 0 20px; }\n\n.add-product-container {\n  margin-top: 50px; }\n\n.profile-button .button-container {\n  margin: auto;\n  width: 300px !important; }\n\n#products {\n  width: 100%;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center; }\n\n.product-tile {\n  max-width: 200px;\n  height: 260px;\n  border: 2px solid #eeeeee;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  margin: 20px 20px 0 20px; }\n\n.product-tile .profile-pic {\n    background: url(\"/assets/img/imgicon.png\") center;\n    background-size: cover;\n    width: 200px;\n    height: 200px; }\n\n.add-tile {\n  margin: 20px 20px 0 20px; }\n\n.add-tile mat-icon {\n    background-color: #b5e2e5;\n    border-radius: 50%;\n    color: #fff;\n    width: 50px;\n    height: 50px;\n    font-size: 40px;\n    text-align: center;\n    line-height: 1.2; }\n\n.active-products-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -webkit-box-flex: 2;\n      -ms-flex-positive: 2;\n          flex-grow: 2; }\n\n.label-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between; }\n\n.label-container label {\n    width: 100px; }\n\n.store-hours {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between; }\n\n.store-hours div {\n    width: 100px; }\n\n.store-hours-container {\n  width: 400px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  height: 239px;\n  -ms-flex-pack: distribute;\n      justify-content: space-around; }\n\n@media only screen and (max-width: 649px) {\n  .main-container {\n    padding: 15px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center; }\n  #profile {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    max-width: 450px; }\n    #profile .info-container {\n      margin: 0px; }\n  .profile-display {\n    display: none; }\n    .profile-display p {\n      margin-right: 20px; }\n  .profile-pic {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    width: 100%;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center; }\n  .product-tile {\n    max-width: 300px;\n    width: 300px;\n    height: 360px; } }\n\napp-footer {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  z-index: 12; }\n", ""]);
+exports.push([module.i, "router-outlet {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  max-width: 1380px; }\n\n.main-container {\n  padding: 15px; }\n\n#profile, #products {\n  margin: 15px;\n  position: relative;\n  top: 45px; }\n\n#profile {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  max-width: 980px;\n  min-height: 200px;\n  height: 100%; }\n\n#profile .address-container {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex; }\n\n#profile .profile-pic img {\n    width: 100px;\n    height: 100px;\n    border-radius: 100%;\n    margin-bottom: 20px;\n    background: url(\"/assets/img/imgicon.png\") center;\n    background-size: cover; }\n\n#profile .info-container {\n    margin: 0px 20px; }\n\n#profile .pen {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    text-align: right;\n    -webkit-box-pack: end;\n        -ms-flex-pack: end;\n            justify-content: flex-end; }\n\n#profile .pen p {\n      margin: 0 10px; }\n\n#profile .review-icon {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center; }\n\n#profile .review-icon mat-icon {\n      line-height: 1.4; }\n\n#profile .review-icon p {\n      margin: 0 20px; }\n\n.add-post-container {\n  margin-top: 50px; }\n\n.profile-button .button-container {\n  margin: auto;\n  width: 300px !important; }\n\n#products {\n  width: 100%;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center; }\n\n.product-tile {\n  max-width: 200px;\n  height: 260px;\n  border: 2px solid #eeeeee;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between;\n  margin: 20px 20px 0 20px; }\n\n.product-tile .profile-pic {\n    background: url(\"/assets/img/imgicon.png\") center;\n    background-size: cover;\n    width: 200px;\n    height: 200px; }\n\n.add-tile {\n  margin: 20px 20px 0 20px; }\n\n.add-tile mat-icon {\n    background-color: #bcb5eb;\n    border-radius: 50%;\n    color: #fff;\n    width: 50px;\n    height: 50px;\n    font-size: 40px;\n    text-align: center;\n    line-height: 1.2; }\n\n.active-products-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  -webkit-box-pack: start;\n      -ms-flex-pack: start;\n          justify-content: flex-start;\n  -webkit-box-flex: 2;\n      -ms-flex-positive: 2;\n          flex-grow: 2; }\n\n.label-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between; }\n\n.label-container label {\n    width: 100px; }\n\n.store-hours {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: justify;\n      -ms-flex-pack: justify;\n          justify-content: space-between; }\n\n.store-hours div {\n    width: 100px; }\n\n.store-hours-container {\n  width: 400px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  height: 239px;\n  -ms-flex-pack: distribute;\n      justify-content: space-around; }\n\n@media only screen and (max-width: 649px) {\n  .main-container {\n    padding: 15px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center; }\n  #profile {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-orient: vertical;\n    -webkit-box-direction: normal;\n        -ms-flex-direction: column;\n            flex-direction: column;\n    max-width: 450px; }\n    #profile .info-container {\n      margin: 0px; }\n  .profile-display {\n    display: none; }\n    .profile-display p {\n      margin-right: 20px; }\n  .profile-pic {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    width: 100%;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center; }\n  .product-tile {\n    max-width: 300px;\n    width: 300px;\n    height: 360px; } }\n\napp-footer {\n  position: fixed;\n  bottom: 0;\n  width: 100%;\n  z-index: 12; }\n", ""]);
 
 // exports
 
@@ -1543,7 +1554,7 @@ var ProfileComponent = /** @class */ (function () {
         this.auth = auth;
         this.router = router;
         this.route = route;
-        this.productListView = true;
+        this.postListView = true;
         this.canEdit = false;
         this.publicView = false;
         this.stars = new Array(5);
@@ -1563,7 +1574,7 @@ var ProfileComponent = /** @class */ (function () {
                 if (_this.profileUser && _this.profile && (_this.profileUser.uid === _this.profile.uid))
                     _this.canEdit = true;
                 if (_this.profile) {
-                    _this.getProducts(_this.profile);
+                    _this.getPosts(_this.profile);
                 }
             }, function (err) {
                 console.log('the err for finding user', err);
@@ -1576,23 +1587,23 @@ var ProfileComponent = /** @class */ (function () {
     ProfileComponent.prototype.goToEditProfile = function () {
         this.router.navigate(['/profile/' + this.profileUser.uid + '/edit-profile']);
     };
-    ProfileComponent.prototype.getProducts = function (profile) {
+    ProfileComponent.prototype.getPosts = function (profile) {
         var _this = this;
-        this.productList = this.dataService.getUserProducts(this.profile.uid);
-        this.productList.subscribe(function (prod) {
-            _this.products = prod;
+        this.postList = this.dataService.getUserPosts(this.profile.uid);
+        this.postList.subscribe(function (prod) {
+            _this.posts = prod;
         }, function (err) { });
     };
-    ProfileComponent.prototype.addProduct = function () {
-        this.productListView = false;
+    ProfileComponent.prototype.addPost = function () {
+        this.postListView = false;
     };
     ProfileComponent.prototype.doneAdding = function (ev) {
         if (ev.update) {
-            this.productListView = !this.productListView;
+            this.postListView = !this.postListView;
         }
         else {
-            this.productListView = !this.productListView;
-            this.getProducts(this.profile);
+            this.postListView = !this.postListView;
+            this.getPosts(this.profile);
         }
     };
     ProfileComponent = __decorate([
@@ -1859,7 +1870,7 @@ var DataService = /** @class */ (function () {
     function DataService(_http) {
         this._http = _http;
     }
-    DataService.prototype.getAllProducts = function () {
+    DataService.prototype.getAllPosts = function () {
         return this._http.get("/api/get-all-products")
             .map(function (result) {
             return result.json();
@@ -1883,13 +1894,13 @@ var DataService = /** @class */ (function () {
             return result.json();
         });
     };
-    DataService.prototype.addProduct = function (productObj) {
-        return this._http.post("/api/add-product", productObj)
+    DataService.prototype.addPost = function (productObj) {
+        return this._http.post("/api/add-post", productObj)
             .map(function (result) {
             return result.json();
         });
     };
-    DataService.prototype.getUserProducts = function (id) {
+    DataService.prototype.getUserPosts = function (id) {
         return this._http.get('/api/user-product/' + id)
             .map(function (result) {
             return result.json();
@@ -1900,6 +1911,42 @@ var DataService = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
     ], DataService);
     return DataService;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/services/focus-generator.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FocusGeneratorService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var FocusGeneratorService = /** @class */ (function () {
+    function FocusGeneratorService() {
+        this.focusPoints = [{ name: "peaceful" }, { name: "thankful" }, { name: "loved" }, { name: "blessed" }, { name: "growing" }];
+        this.currentFocus = this.generateFocus();
+    }
+    FocusGeneratorService.prototype.generateFocus = function () {
+        this.currentFocus = this.focusPoints[Math.floor(Math.random() * this.focusPoints.length)];
+        return this.currentFocus;
+    };
+    FocusGeneratorService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+        __metadata("design:paramtypes", [])
+    ], FocusGeneratorService);
+    return FocusGeneratorService;
 }());
 
 
@@ -1963,7 +2010,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "router-outlet {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  max-width: 1380px; }\n\n.button-container {\n  background-color: #b5e2e5;\n  height: 50px;\n  padding: 2px;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  color: #fff;\n  cursor: pointer; }\n\n.button-container p {\n    font-size: 12px;\n    background: #fff0;\n    margin: 0px; }\n", ""]);
+exports.push([module.i, "router-outlet {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  max-width: 1380px; }\n\n.button-container {\n  background-color: #bcb5eb;\n  height: 50px;\n  padding: 2px;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  color: #fff;\n  cursor: pointer; }\n\n.button-container p {\n    font-size: 12px;\n    background: #fff0;\n    margin: 0px; }\n", ""]);
 
 // exports
 
@@ -2020,7 +2067,7 @@ var ActionButtonComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/shared/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-drawer-container class=\"header\">\n  <mat-drawer #drawer class=\"main-drawer\">\n    <div class=\"list-item action-button\" *ngIf=\"!currentUser\">\n      <div class=\"button-container\">\n          <app-action-button ctaText=\"Login\" size=\"'lg'\" (click)=\"goToSignin()\"></app-action-button>          \n      </div>\n      <div class=\"button-container\">\n          <app-action-button ctaText=\"SignUp\" size=\"'lg'\" (click)=\"goToSignin()\"></app-action-button>          \n      </div>\n    </div>\n    <div *ngIf=\"currentUser\">\n      <div class=\"right-nav menu\" (click)=\"drawer.toggle()\">\n        <img *ngIf=\"!currentUser\" width=\"35px\" height=\"35px\" src=\"../../../assets/img/profileicon.png\" alt=\"\">\n        <img *ngIf=\"currentUser && currentUser.profileImage\" width=\"35px\" height=\"35px\" src=\"{{currentUser.profileImage}}\" alt=\"User Image\"> \n        <p>Welcome</p>    \n      </div>\n      <button mat-menu-item (click)=\"goToMap()\">Map</button>              \n      <mat-divider></mat-divider>\n      <div class=\"list-item\" (click)=\"goToProfile()\">Profile</div>\n      <mat-divider></mat-divider>\n      <!-- <div class=\"list-item\">Your Products</div>  \n      <mat-divider></mat-divider>\n      <div class=\"list-item\">Your Orders</div>     \n      <mat-divider></mat-divider>\n      <div class=\"list-item\">Favoritess</div>   -->\n    </div>\n    <mat-divider></mat-divider>\n    <div (click)=\"goToHome()\" class=\"list-item\">\n      Home\n    </div>\n    <mat-divider></mat-divider>\n    <div (click)=\"goToMap()\" class=\"list-item\">\n        Map View\n    </div>\n    <mat-divider></mat-divider>\n    <!-- <div class=\"list-item\">\n      Set up your business\n    </div>\n    <mat-divider></mat-divider>\n    <div class=\"list-item\">\n      How it works\n    </div>\n    <mat-divider></mat-divider>\n    <div class=\"list-item\">\n      Search\n    </div>\n    <mat-divider></mat-divider>\n    <div class=\"list-item\">\n      About\n    </div> -->\n    <mat-divider></mat-divider>\n    <div class=\"list-item\" (click)=\"logOut()\" *ngIf=\"currentUser\">\n      Logout\n    </div>\n  </mat-drawer>\n  <mat-drawer-content>\n      <mat-toolbar *ngIf=\"!currentUser\">\n        <div class=\"nav-container main\">\n            <div class=\"right-nav logo\">\n              <a routerLink=\"/\" routerLinkActive=\"active\">\n                <span>My Favorite</span>\n                <span>App</span>\n              </a>\n            </div>\n            <div class=\"left-nav\">\n              <span (click)=\"goToSignin()\">Sign In</span>\n              <span (click)=\"goToMap()\">Map View</span>\n              <span (click)=\"goToHome()\">Home</span>\n            </div>\n        </div>\n        <div class=\"nav-container mobile\">\n          <mat-icon (click)=\"drawer.toggle()\">menu</mat-icon>\n          <div class=\"logo\">\n              <a (click)=\"goToHome()\"routerLinkActive=\"active\">\n                <span>My Favorite</span>\n                <span>App</span>\n              </a>\n            </div>\n        </div>\n      </mat-toolbar>\n\n      <mat-toolbar *ngIf=\"currentUser\">\n        <div class=\"nav-container main authorized\">\n            <div class=\"right-nav logo\">\n              <a (click)=\"goToHome()\" routerLinkActive=\"active\">\n                <span>My Favorite</span>\n                <span>App</span>\n              </a>\n            </div>\n            <div [matMenuTriggerFor]=\"settingsMenu\" class=\"left-nav\">\n                {{currentUser.userName}}     \n              <img *ngIf=\"!currentUser\" width=\"30px\" height=\"30px\" src=\"../../../assets/img/profileicon.png\" alt=\"\">\n              <img *ngIf=\"currentUser && currentUser.profileImage\" width=\"30px\" height=\"30px\" src=\"{{currentUser.profileImage}}\" alt=\"User Image\"> \n            </div>\n          </div>\n          <div class=\"settings-menu\">\n            <mat-menu #settingsMenu=\"matMenu\"> \n              <button></button>\n              <button mat-menu-item (click)=\"goToMap()\">Map</button>              \n              <button mat-menu-item (click)=\"goToProfile(drawer)\">Profile</button>\n                <!-- <button mat-menu-item>Your Products</button>\n                <button mat-menu-item>Your Orders</button>\n                <button mat-menu-item>Favorites</button>\n                <button mat-menu-item>Set Up Your Business</button>\n                <button mat-menu-item>How It Works</button>\n                <button mat-menu-item>Search</button>\n                <button mat-menu-item>About</button> -->\n              <button mat-menu-item (click)=\"logOut()\">Logout</button>\n            </mat-menu> \n          </div>\n        <div class=\"nav-container mobile\">\n          <mat-icon (click)=\"drawer.toggle()\">menu</mat-icon>            \n          <div class=\"logo\">\n              <a routerLink=\"/\" routerLinkActive=\"active\">\n                <span>My Favorite</span>\n                <span>App</span>\n              </a>\n            </div>\n        </div>\n      </mat-toolbar>\n  </mat-drawer-content>\n\n</mat-drawer-container>\n<mat-divider></mat-divider>"
+module.exports = "<mat-drawer-container class=\"header\">\n  <mat-drawer #drawer class=\"main-drawer\">\n    <div class=\"list-item action-button\" *ngIf=\"!currentUser\">\n      <div class=\"button-container\">\n          <app-action-button ctaText=\"Login\" size=\"'lg'\" (click)=\"goToSignin()\"></app-action-button>          \n      </div>\n      <div class=\"button-container\">\n          <app-action-button ctaText=\"SignUp\" size=\"'lg'\" (click)=\"goToSignin()\"></app-action-button>          \n      </div>\n    </div>\n    <div *ngIf=\"currentUser\">\n      <div class=\"right-nav menu\" (click)=\"drawer.toggle()\">\n        <img *ngIf=\"!currentUser\" width=\"35px\" height=\"35px\" src=\"../../../assets/img/profileicon.png\" alt=\"\">\n        <img *ngIf=\"currentUser && currentUser.profileImage\" width=\"35px\" height=\"35px\" src=\"{{currentUser.profileImage}}\" alt=\"User Image\"> \n        <p>Welcome</p>    \n      </div>\n      <button mat-menu-item (click)=\"goToMap()\">Map</button>              \n      <mat-divider></mat-divider>\n      <div class=\"list-item\" (click)=\"goToProfile()\">Profile</div>\n      <mat-divider></mat-divider>\n      <!-- <div class=\"list-item\">Your Posts</div>  \n      <mat-divider></mat-divider>\n      <div class=\"list-item\">Your Orders</div>     \n      <mat-divider></mat-divider>\n      <div class=\"list-item\">Favoritess</div>   -->\n    </div>\n    <mat-divider></mat-divider>\n    <div (click)=\"goToHome()\" class=\"list-item\">\n      Home\n    </div>\n    <mat-divider></mat-divider>\n    <div (click)=\"goToMap()\" class=\"list-item\">\n        Map View\n    </div>\n    <mat-divider></mat-divider>\n    <!-- <div class=\"list-item\">\n      Set up your business\n    </div>\n    <mat-divider></mat-divider>\n    <div class=\"list-item\">\n      How it works\n    </div>\n    <mat-divider></mat-divider>\n    <div class=\"list-item\">\n      Search\n    </div>\n    <mat-divider></mat-divider>\n    <div class=\"list-item\">\n      About\n    </div> -->\n    <mat-divider></mat-divider>\n    <div class=\"list-item\" (click)=\"logOut()\" *ngIf=\"currentUser\">\n      Logout\n    </div>\n  </mat-drawer>\n  <mat-drawer-content>\n      <mat-toolbar *ngIf=\"!currentUser\">\n        <div class=\"nav-container main\">\n            <div class=\"right-nav logo\">\n              <a routerLink=\"/\" routerLinkActive=\"active\">\n                <span>Daily</span>\n                <span>Destiny</span>\n              </a>\n            </div>\n            <div class=\"left-nav\">\n              <span (click)=\"goToSignin()\">Sign In</span>\n              <span (click)=\"goToMap()\">Map View</span>\n              <span (click)=\"goToHome()\">Home</span>\n            </div>\n        </div>\n        <div class=\"nav-container mobile\">\n          <mat-icon (click)=\"drawer.toggle()\">menu</mat-icon>\n          <div class=\"logo\">\n              <a (click)=\"goToHome()\"routerLinkActive=\"active\">\n                <span>Daily</span>\n                <span>Destiny</span>\n              </a>\n            </div>\n        </div>\n      </mat-toolbar>\n\n      <mat-toolbar *ngIf=\"currentUser\">\n        <div class=\"nav-container main authorized\">\n            <div class=\"right-nav logo\">\n              <a (click)=\"goToHome()\" routerLinkActive=\"active\">\n                <span>Daily</span>\n                <span>Destiny</span>\n              </a>\n            </div>\n            <div [matMenuTriggerFor]=\"settingsMenu\" class=\"left-nav\">\n                {{currentUser.userName}}     \n              <img *ngIf=\"!currentUser\" width=\"30px\" height=\"30px\" src=\"../../../assets/img/profileicon.png\" alt=\"\">\n              <img *ngIf=\"currentUser && currentUser.profileImage\" width=\"30px\" height=\"30px\" src=\"{{currentUser.profileImage}}\" alt=\"User Image\"> \n            </div>\n          </div>\n          <div class=\"settings-menu\">\n            <mat-menu #settingsMenu=\"matMenu\"> \n              <button></button>\n              <button mat-menu-item (click)=\"goToMap()\">Map</button>              \n              <button mat-menu-item (click)=\"goToProfile(drawer)\">Profile</button>\n                <!-- <button mat-menu-item>Your Posts</button>\n                <button mat-menu-item>Your Orders</button>\n                <button mat-menu-item>Favorites</button>\n                <button mat-menu-item>Set Up Your Business</button>\n                <button mat-menu-item>How It Works</button>\n                <button mat-menu-item>Search</button>\n                <button mat-menu-item>About</button> -->\n              <button mat-menu-item (click)=\"logOut()\">Logout</button>\n            </mat-menu> \n          </div>\n        <div class=\"nav-container mobile\">\n          <mat-icon (click)=\"drawer.toggle()\">menu</mat-icon>            \n          <div class=\"logo\">\n              <a routerLink=\"/\" routerLinkActive=\"active\">\n                <span>Daily</span>\n                <span>Destiny</span>\n              </a>\n            </div>\n        </div>\n      </mat-toolbar>\n  </mat-drawer-content>\n\n</mat-drawer-container>\n<mat-divider></mat-divider>"
 
 /***/ }),
 
@@ -2032,7 +2079,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "router-outlet {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  max-width: 1380px; }\n\n.header {\n  position: fixed;\n  top: 0; }\n\nmat-drawer-content.mat-drawer-content {\n  position: fixed;\n  width: 100%;\n  height: 54px;\n  z-index: 2147483647; }\n\n.settings-menu mat-menu {\n  position: relative;\n  top: 57px; }\n\nmat-toolbar {\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  background: #fff;\n  -webkit-box-shadow: 2px -13px 35px;\n          box-shadow: 2px -13px 35px;\n  height: 54px;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n\nmat-toolbar a {\n    color: #b5e2e5;\n    margin: 0 20px; }\n\n@media only screen and (min-width: 650px) {\n    mat-toolbar .nav-container.mobile {\n      display: none; }\n    mat-toolbar .nav-container {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      width: 100%;\n      text-align: center;\n      max-width: 1280px;\n      -webkit-box-pack: justify;\n          -ms-flex-pack: justify;\n              justify-content: space-between; }\n      mat-toolbar .nav-container .left-nav {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        width: 300px;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n        cursor: pointer; }\n      mat-toolbar .nav-container .logo {\n        color: #b5e2e5;\n        font-size: 30px;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center; }\n      mat-toolbar .nav-container .example-form {\n        min-width: 150px;\n        max-width: 500px;\n        width: 100%; }\n      mat-toolbar .nav-container .example-full-width {\n        width: 100%; }\n      mat-toolbar .nav-container .mat-input-element {\n        font-size: 16px; }\n      mat-toolbar .nav-container .left-nav {\n        font-size: 14px;\n        margin: 0 15px; }\n    mat-toolbar .nav-container.authorized .left-nav {\n      -webkit-box-pack: end;\n          -ms-flex-pack: end;\n              justify-content: flex-end; } }\n\n@media only screen and (max-width: 649px) {\n    mat-toolbar .nav-container.main {\n      display: none; }\n    mat-toolbar .nav-container {\n      text-align: left;\n      width: 100%;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: horizontal;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: row;\n              flex-direction: row;\n      -webkit-box-pack: justify;\n          -ms-flex-pack: justify;\n              justify-content: space-between;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center; }\n    mat-toolbar .right-nav.menu {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center; }\n      mat-toolbar .right-nav.menu p {\n        font-size: 10px;\n        margin: 2px 0 0 0;\n        line-height: .8; }\n    mat-toolbar mat-icon {\n      width: 10%; }\n    mat-toolbar .logo {\n      width: 90%;\n      text-align: center;\n      margin-right: 10%; }\n    mat-toolbar .example-container {\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      left: 0;\n      right: 0; }\n    mat-toolbar .example-events {\n      width: 300px;\n      height: 200px;\n      overflow: auto;\n      border: 1px solid #555; } }\n\n.mat-drawer-container {\n  position: inherit;\n  width: 100%; }\n\n.main-drawer {\n  width: 300px;\n  padding: 20px;\n  margin-top: 50px;\n  background-color: #FFFFFF; }\n\n.main-drawer .list-item {\n    height: 50px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center; }\n\n.main-drawer .action-button {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n    margin-bottom: 20px; }\n\n.main-drawer .action-button .button-container {\n      width: 117px; }\n", ""]);
+exports.push([module.i, "router-outlet {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  max-width: 1380px; }\n\n.header {\n  position: fixed;\n  top: 0; }\n\nmat-drawer-content.mat-drawer-content {\n  position: fixed;\n  width: 100%;\n  height: 54px;\n  z-index: 2147483647; }\n\n.settings-menu mat-menu {\n  position: relative;\n  top: 57px; }\n\nmat-toolbar {\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  background: #fff;\n  -webkit-box-shadow: 2px -13px 35px;\n          box-shadow: 2px -13px 35px;\n  height: 54px;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n\nmat-toolbar a {\n    color: #bcb5eb;\n    margin: 0 20px; }\n\n@media only screen and (min-width: 650px) {\n    mat-toolbar .nav-container.mobile {\n      display: none; }\n    mat-toolbar .nav-container {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      width: 100%;\n      text-align: center;\n      max-width: 1280px;\n      -webkit-box-pack: justify;\n          -ms-flex-pack: justify;\n              justify-content: space-between; }\n      mat-toolbar .nav-container .left-nav {\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        width: 300px;\n        -webkit-box-pack: justify;\n            -ms-flex-pack: justify;\n                justify-content: space-between;\n        cursor: pointer; }\n      mat-toolbar .nav-container .logo {\n        color: #bcb5eb;\n        font-size: 30px;\n        display: -webkit-box;\n        display: -ms-flexbox;\n        display: flex;\n        -webkit-box-align: center;\n            -ms-flex-align: center;\n                align-items: center; }\n      mat-toolbar .nav-container .example-form {\n        min-width: 150px;\n        max-width: 500px;\n        width: 100%; }\n      mat-toolbar .nav-container .example-full-width {\n        width: 100%; }\n      mat-toolbar .nav-container .mat-input-element {\n        font-size: 16px; }\n      mat-toolbar .nav-container .left-nav {\n        font-size: 14px;\n        margin: 0 15px; }\n    mat-toolbar .nav-container.authorized .left-nav {\n      -webkit-box-pack: end;\n          -ms-flex-pack: end;\n              justify-content: flex-end; } }\n\n@media only screen and (max-width: 649px) {\n    mat-toolbar .nav-container.main {\n      display: none; }\n    mat-toolbar .nav-container {\n      text-align: left;\n      width: 100%;\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-orient: horizontal;\n      -webkit-box-direction: normal;\n          -ms-flex-direction: row;\n              flex-direction: row;\n      -webkit-box-pack: justify;\n          -ms-flex-pack: justify;\n              justify-content: space-between;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center; }\n    mat-toolbar .right-nav.menu {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n      -webkit-box-align: center;\n          -ms-flex-align: center;\n              align-items: center; }\n      mat-toolbar .right-nav.menu p {\n        font-size: 10px;\n        margin: 2px 0 0 0;\n        line-height: .8; }\n    mat-toolbar mat-icon {\n      width: 10%; }\n    mat-toolbar .logo {\n      width: 90%;\n      text-align: center;\n      margin-right: 10%; }\n    mat-toolbar .example-container {\n      position: absolute;\n      top: 0;\n      bottom: 0;\n      left: 0;\n      right: 0; }\n    mat-toolbar .example-events {\n      width: 300px;\n      height: 200px;\n      overflow: auto;\n      border: 1px solid #555; } }\n\n.mat-drawer-container {\n  position: inherit;\n  width: 100%; }\n\n.main-drawer {\n  width: 300px;\n  padding: 20px;\n  margin-top: 50px;\n  background-color: #FFFFFF; }\n\n.main-drawer .list-item {\n    height: 50px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n        -ms-flex-align: center;\n            align-items: center; }\n\n.main-drawer .action-button {\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: justify;\n        -ms-flex-pack: justify;\n            justify-content: space-between;\n    margin-bottom: 20px; }\n\n.main-drawer .action-button .button-container {\n      width: 117px; }\n", ""]);
 
 // exports
 
@@ -2169,7 +2216,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "router-outlet {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  max-width: 1380px; }\n\n.button-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin: 30px 0;\n  cursor: pointer; }\n\n.button {\n  color: white;\n  background-color: #b5e2e5;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  height: 50px;\n  -ms-flex-line-pack: center;\n      align-content: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  width: 300px; }\n\nmat-icon.logo {\n  background-color: #b5e2e5;\n  color: #fff; }\n\nmat-icon {\n  width: 50px;\n  height: 50px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n\n.small-text {\n  font-size: 9px;\n  text-align: center; }\n\n.small-text a {\n    color: #4e81af;\n    text-decoration: underline;\n    cursor: pointer; }\n\n.button-container .material-icons {\n  font-size: 34px;\n  width: 76px; }\n\n.facebook-button.button {\n  background-color: #3c5a99; }\n\n.divider-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin-bottom: 15px; }\n\ninput {\n  background: #fff;\n  height: 50px;\n  min-width: 150px;\n  width: 50vw;\n  padding-left: 10px;\n  border: 1px solid #eaeaea; }\n\n.cta-button {\n  position: relative;\n  width: 350px;\n  margin-top: 50px; }\n\n@media only screen and (max-width: 649px) {\n  input {\n    width: 63vw; }\n  .cta-button {\n    width: 250px; } }\n", ""]);
+exports.push([module.i, "router-outlet {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  max-width: 1380px; }\n\n.button-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin: 30px 0;\n  cursor: pointer; }\n\n.button {\n  color: white;\n  background-color: #bcb5eb;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  height: 50px;\n  -ms-flex-line-pack: center;\n      align-content: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  width: 300px; }\n\nmat-icon.logo {\n  background-color: #bcb5eb;\n  color: #fff; }\n\nmat-icon {\n  width: 50px;\n  height: 50px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n\n.small-text {\n  font-size: 9px;\n  text-align: center; }\n\n.small-text a {\n    color: #4e81af;\n    text-decoration: underline;\n    cursor: pointer; }\n\n.button-container .material-icons {\n  font-size: 34px;\n  width: 76px; }\n\n.facebook-button.button {\n  background-color: #3c5a99; }\n\n.divider-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin-bottom: 15px; }\n\ninput {\n  background: #fff;\n  height: 50px;\n  min-width: 150px;\n  width: 50vw;\n  padding-left: 10px;\n  border: 1px solid #eaeaea; }\n\n.cta-button {\n  position: relative;\n  width: 350px;\n  margin-top: 50px; }\n\n@media only screen and (max-width: 649px) {\n  input {\n    width: 63vw; }\n  .cta-button {\n    width: 250px; } }\n", ""]);
 
 // exports
 
@@ -2377,7 +2424,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "router-outlet {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  max-width: 1380px; }\n\n.page-wrapper {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n  height: 90vh;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  margin: 0px 15px; }\n\n.page-wrapper .main-container {\n    max-width: 600px;\n    height: 405px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center; }\n\n.mat-tab-content {\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  text-align: center; }\n\n.mat-tab-group {\n  width: 600px; }\n\nmat-tab {\n  text-align: center;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center; }\n\n.button-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin: 30px 0;\n  cursor: pointer; }\n\n.button {\n  color: white;\n  background-color: #b5e2e5;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  height: 50px;\n  -ms-flex-line-pack: center;\n      align-content: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  width: 300px; }\n\nmat-icon.logo {\n  background-color: #b5e2e5;\n  color: #fff; }\n\nmat-icon {\n  width: 50px;\n  height: 50px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n\n.small-text {\n  font-size: 9px;\n  text-align: center; }\n\n.small-text a {\n    color: #4e81af;\n    text-decoration: underline;\n    cursor: pointer; }\n\n.button-container .material-icons {\n  font-size: 34px;\n  width: 76px; }\n\n.facebook-button.button {\n  background-color: #3c5a99; }\n\n.divider-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin-bottom: 15px; }\n\ninput {\n  background: #fff;\n  height: 50px;\n  min-width: 150px;\n  width: 50vw;\n  padding-left: 10px;\n  border: 1px solid #eaeaea; }\n\n.cta-button {\n  position: relative;\n  width: 350px;\n  margin-top: 50px; }\n\n@media only screen and (max-width: 649px) {\n  .page-wrapper {\n    max-width: 350px; }\n    .page-wrapper .main-container {\n      max-width: 350px; }\n  .cta-button {\n    width: 250px; } }\n", ""]);
+exports.push([module.i, "router-outlet {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  max-width: 1380px; }\n\n.page-wrapper {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  width: 100%;\n  height: 90vh;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  margin: 0px 15px; }\n\n.page-wrapper .main-container {\n    max-width: 600px;\n    height: 405px;\n    display: -webkit-box;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-pack: center;\n        -ms-flex-pack: center;\n            justify-content: center; }\n\n.mat-tab-content {\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  text-align: center; }\n\n.mat-tab-group {\n  width: 600px; }\n\nmat-tab {\n  text-align: center;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center; }\n\n.button-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  margin: 30px 0;\n  cursor: pointer; }\n\n.button {\n  color: white;\n  background-color: #bcb5eb;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  height: 50px;\n  -ms-flex-line-pack: center;\n      align-content: center;\n  -webkit-box-orient: vertical;\n  -webkit-box-direction: normal;\n      -ms-flex-direction: column;\n          flex-direction: column;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  width: 300px; }\n\nmat-icon.logo {\n  background-color: #bcb5eb;\n  color: #fff; }\n\nmat-icon {\n  width: 50px;\n  height: 50px;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center; }\n\n.small-text {\n  font-size: 9px;\n  text-align: center; }\n\n.small-text a {\n    color: #4e81af;\n    text-decoration: underline;\n    cursor: pointer; }\n\n.button-container .material-icons {\n  font-size: 34px;\n  width: 76px; }\n\n.facebook-button.button {\n  background-color: #3c5a99; }\n\n.divider-container {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  margin-bottom: 15px; }\n\ninput {\n  background: #fff;\n  height: 50px;\n  min-width: 150px;\n  width: 50vw;\n  padding-left: 10px;\n  border: 1px solid #eaeaea; }\n\n.cta-button {\n  position: relative;\n  width: 350px;\n  margin-top: 50px; }\n\n@media only screen and (max-width: 649px) {\n  .page-wrapper {\n    max-width: 350px; }\n    .page-wrapper .main-container {\n      max-width: 350px; }\n  .cta-button {\n    width: 250px; } }\n", ""]);
 
 // exports
 
@@ -2612,6 +2659,13 @@ var UserComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/assets/img/ballinhandbg.jpg":
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "ballinhandbg.69b0ea18c9a264a0f083.jpg";
+
+/***/ }),
+
 /***/ "../../../../../src/assets/img/beautysupply.jpg":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2623,13 +2677,6 @@ module.exports = __webpack_require__.p + "beautysupply.9fec700d2eb2f54f61f6.jpg"
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "dreads.1bd5e6940ed8b02142a3.jpg";
-
-/***/ }),
-
-/***/ "../../../../../src/assets/img/homebg.jpg":
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__.p + "homebg.0df27f1cdad6e926df1d.jpg";
 
 /***/ }),
 

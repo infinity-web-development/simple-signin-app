@@ -21,7 +21,6 @@ import { AppComponent } from './app.component';
 import { SupplyanddemandComponent } from './supplyanddemand/supplyanddemand.component';
 import { HomeMapComponent } from './home-map/home-map.component';
 import { MapViewComponent } from './map-view/map-view.component';
-import { ProductsComponent } from './products/products.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './shared/header/header.component';
@@ -35,11 +34,13 @@ import { AuthService } from './services/auth/auth.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { LocationService} from './services/location.service';
 import { DataService } from './services/data.service';
+import { FocusGeneratorService } from './services/focus-generator.service';
+
 import { CreateDemandComponent } from './create-demand/create-demand.component';
 import { ModalWindowComponent } from './shared/modal-window/modal-window.component';
 import { PrivacyTermsComponent } from './privacy-terms/privacy-terms.component';
 import { ProfileComponent } from './profile/profile.component';
-import { AddProductComponent } from './add-product/add-product.component';
+import { AddPostComponent } from './add-post/add-post.component';
 import { SearchModalComponent } from './shared/search-modal/search-modal.component';
 import { HttpModule } from '@angular/http';
 import { EditProfileComponent } from './edit-profile/edit-profile.component'
@@ -48,6 +49,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { UserProfile } from './class/user-profile';
 import { SigninComponent } from './signin/signin.component';
 import { MessagesComponent } from './messages/messages.component';
+import { DailyFocusHomeComponent } from './daily-focus-home/daily-focus-home.component';
 
 const appRoutes: Routes = [
   {path: 'search', component: LandingPageComponent} ,
@@ -61,7 +63,8 @@ const appRoutes: Routes = [
   { path: 'create-demand', component: CreateDemandComponent },
   { path: 'privacy-terms', component: PrivacyTermsComponent },
   { path: 'profile/:id', component: ProfileComponent },
-  { path: 'profile/:id/edit-profile', component: EditProfileComponent }
+  { path: 'profile/:id/edit-profile', component: EditProfileComponent },
+  { path: 'daily-home', component: DailyFocusHomeComponent }
 ];
 
 @NgModule({
@@ -70,7 +73,6 @@ const appRoutes: Routes = [
     SupplyanddemandComponent,
     HomeMapComponent,
     MapViewComponent,
-    ProductsComponent,
     LandingPageComponent,
     FooterComponent,
     HeaderComponent,
@@ -82,11 +84,12 @@ const appRoutes: Routes = [
     ModalWindowComponent,
     PrivacyTermsComponent,
     ProfileComponent,
-    AddProductComponent,
+    AddPostComponent,
     SearchModalComponent,
     EditProfileComponent,
     SigninComponent,
     MessagesComponent,
+    DailyFocusHomeComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes, {useHash: false, onSameUrlNavigation: "reload"}),
@@ -120,7 +123,7 @@ const appRoutes: Routes = [
     MatSelectModule,
     HttpClientModule
   ],
-  providers: [AuthGuard, AuthService, MatDialog, LocationService, DataService, JwtHelperService, UserProfile],
+  providers: [AuthGuard, AuthService, MatDialog, LocationService, DataService, JwtHelperService, UserProfile, FocusGeneratorService],
   bootstrap: [AppComponent],
   entryComponents: [
     ModalWindowComponent,

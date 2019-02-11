@@ -5,7 +5,7 @@ import { MapsAPILoader } from '@agm/core';
 import { AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map'
-import { Product } from '../class/product';
+import { Post } from '../class/post';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import { SearchModalComponent } from '../shared/search-modal/search-modal.component';
 import { DataService } from '../services/data.service';
@@ -63,7 +63,7 @@ export class HomeMapComponent implements OnInit {
     // this.products = this.db.list('/products').valueChanges();
     console.log('this is the users', this.users);
     this.done = true;
-    this.productList = this.dataService.getAllProducts()
+    this.productList = this.dataService.getAllPosts()
       .subscribe((product) => {
         this.products = product;
         console.log('this is the product list', this.products)
@@ -124,7 +124,7 @@ export class HomeMapComponent implements OnInit {
     });
   }
 
-  viewProducts(user) {
+  viewPosts(user) {
     this.dataService.profileLookup = user;
     this.router.navigate(['/profile/'+user.uid])
   }
